@@ -55,8 +55,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://i.imgur.com/cR1q6bu.png",
+    "dark": "https://i.imgur.com/cR1q6bu.png"
   },
   "navbar": {
     "links": [
