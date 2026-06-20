@@ -1,12 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "sequoia",
+  "theme": "palm",
   "name": "Broken CompassRP Player Guide",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
   "favicon": "/favicon.svg",
   "navigation": {
     "pages": [
