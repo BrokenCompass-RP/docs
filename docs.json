@@ -51,12 +51,7 @@
     "dark": "https://i.imgur.com/cR1q6bu.png"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Dashboard",
@@ -79,5 +74,8 @@
     "socials": {
 
     }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
   }
 }
