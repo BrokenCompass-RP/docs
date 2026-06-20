@@ -39,9 +39,17 @@
             "group": "Jobs",
             "pages": [
               "jobs/overview",
-              "jobs/mechanic-job",
+              "jobs/ems-job",
               "jobs/police-job",
-              "jobs/ems-job"
+              "jobs/mechanic-job",
+              "jobs/tow-job",
+              "jobs/bus-job",
+              "jobs/taxi-job",
+              "jobs/garbage-worker",
+              "jobs/news-job",
+              "jobs/recycler",
+              "jobs/trucker",
+              "jobs/car-dealer"
             ]
           }
         ]
