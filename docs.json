@@ -39,7 +39,9 @@
             "group": "Jobs",
             "pages": [
               "overview",
-              "jobs/mechanic-job"
+              "jobs/mechanic-job",
+              "jobs/police-job",
+              "jobs/ems-job"
             ]
           }
         ]
