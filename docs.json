@@ -38,8 +38,8 @@
           {
             "group": "Jobs",
             "pages": [
-              "jobs",
-              "mechanic-job"
+              "overview",
+              "jobs/mechanic-job"
             ]
           }
         ]
