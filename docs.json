@@ -4,10 +4,10 @@
   "colors": {
     "primary": "#856f56",
     "dark": "#856f56",
-    "light": "#856f56",
+    "light": "#856f56"
   },
   "appearance": {
-    "default": "dark",
+    "default": "dark"
   },
   "name": "Broken CompassRP Player Guide",
   "favicon": "https://i.imgur.com/cR1q6bu.png",
