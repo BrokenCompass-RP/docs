@@ -38,7 +38,7 @@
           {
             "group": "Jobs",
             "pages": [
-              "overview",
+              "jobs/overview",
               "jobs/mechanic-job",
               "jobs/police-job",
               "jobs/ems-job"
