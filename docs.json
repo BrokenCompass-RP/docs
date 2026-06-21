@@ -61,7 +61,7 @@
             "icon": "people",
             "expanded": true,
             "pages": [
-              "overview-1"
+              "citizen-activities/overview"
             ]
           },
           {
@@ -69,7 +69,7 @@
             "icon": "handcuffs",
             "expanded": true,
             "pages": [
-              "overview-2"
+              "criminal-activities/overview"
             ]
           }
         ]
