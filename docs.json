@@ -32,7 +32,7 @@
           {
             "group": "Basics",
             "pages": [
-              "overview"
+              "basics/overview"
             ],
             "icon": "wpbeginner",
             "expanded": true
