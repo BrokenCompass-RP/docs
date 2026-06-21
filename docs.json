@@ -59,12 +59,13 @@
             "icon": "money-bill-1-wave"
           },
           {
-            "group": "Citizen Activities",
+            "group": "Civilian Activities",
             "root": "citizen-activities/overview",
             "directory": "none",
             "icon": "people",
             "pages": [
-              "citizen-activities/overview"
+              "citizen-activities/overview",
+              "civilian-activities/overview"
             ]
           },
           {
