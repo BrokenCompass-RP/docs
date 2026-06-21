@@ -32,8 +32,10 @@
           {
             "group": "Basics",
             "pages": [
-              "controls"
-            ]
+              "overview"
+            ],
+            "icon": "wpbeginner",
+            "expanded": true
           },
           {
             "group": "Jobs",
@@ -50,6 +52,24 @@
               "jobs/recycler",
               "jobs/trucker",
               "jobs/car-dealer"
+            ],
+            "icon": "money-bill-1-wave",
+            "expanded": true
+          },
+          {
+            "group": "Citizen Activities",
+            "icon": "people",
+            "expanded": true,
+            "pages": [
+              "overview-1"
+            ]
+          },
+          {
+            "group": "Criminal Activities",
+            "icon": "handcuffs",
+            "expanded": true,
+            "pages": [
+              "overview-2"
             ]
           }
         ]
