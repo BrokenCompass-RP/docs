@@ -64,7 +64,6 @@
             "directory": "none",
             "icon": "people",
             "pages": [
-              "civilian-activities/overview",
               "civilian-activities/overview"
             ]
           },
