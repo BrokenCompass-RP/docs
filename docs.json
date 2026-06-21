@@ -74,7 +74,8 @@
             "icon": "handcuffs",
             "expanded": true,
             "pages": [
-              "criminal-activities/overview"
+              "criminal-activities/overview",
+              "criminal-activities/store-robberies"
             ]
           }
         ]
