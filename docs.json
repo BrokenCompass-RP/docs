@@ -31,6 +31,8 @@
           "index",
           {
             "group": "Basics",
+            "root": "basics/overview",
+            "directory": "none",
             "pages": [
               "basics/overview"
             ],
