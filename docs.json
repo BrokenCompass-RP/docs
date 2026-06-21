@@ -60,11 +60,11 @@
           },
           {
             "group": "Civilian Activities",
-            "root": "citizen-activities/overview",
+            "root": "civilian-activities/overview",
             "directory": "none",
             "icon": "people",
             "pages": [
-              "citizen-activities/overview",
+              "civilian-activities/overview",
               "civilian-activities/overview"
             ]
           },
