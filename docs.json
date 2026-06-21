@@ -39,6 +39,7 @@
           },
           {
             "group": "Jobs",
+            "root": "jobs/overview",
             "pages": [
               "jobs/overview",
               "jobs/ems-job",
@@ -58,6 +59,8 @@
           },
           {
             "group": "Citizen Activities",
+            "root": "citizen-activities/overview",
+            "directory": "card"
             "icon": "people",
             "expanded": true,
             "pages": [
@@ -66,6 +69,8 @@
           },
           {
             "group": "Criminal Activities",
+            "root": "criminal-activities/overview",
+            "directory": "none",
             "icon": "handcuffs",
             "expanded": true,
             "pages": [
