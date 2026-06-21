@@ -61,7 +61,7 @@
           {
             "group": "Citizen Activities",
             "root": "citizen-activities/overview",
-            "directory": "card",
+            "directory": "none",
             "icon": "people",
             "pages": [
               "citizen-activities/overview"
