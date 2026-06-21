@@ -54,15 +54,13 @@
               "jobs/trucker",
               "jobs/car-dealer"
             ],
-            "icon": "money-bill-1-wave",
-            "expanded": true
+            "icon": "money-bill-1-wave"
           },
           {
             "group": "Citizen Activities",
             "root": "citizen-activities/overview",
             "directory": "card",
             "icon": "people",
-            "expanded": true,
             "pages": [
               "citizen-activities/overview"
             ]
@@ -72,7 +70,6 @@
             "root": "criminal-activities/overview",
             "directory": "none",
             "icon": "handcuffs",
-            "expanded": true,
             "pages": [
               "criminal-activities/overview",
               "criminal-activities/store-robberies"
