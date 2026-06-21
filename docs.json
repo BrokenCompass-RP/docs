@@ -60,7 +60,7 @@
           {
             "group": "Citizen Activities",
             "root": "citizen-activities/overview",
-            "directory": "card"
+            "directory": "card",
             "icon": "people",
             "expanded": true,
             "pages": [
