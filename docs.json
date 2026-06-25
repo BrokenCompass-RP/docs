@@ -34,7 +34,11 @@
             "root": "basics/overview",
             "directory": "none",
             "pages": [
-              "basics/overview"
+              "basics/overview",
+              "basics/rules",
+              "basics/useful-controls",
+              "basics/common-commands",
+              "basics/getting-around"
             ],
             "icon": "wpbeginner",
             "expanded": true
