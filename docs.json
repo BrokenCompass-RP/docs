@@ -38,7 +38,8 @@
               "basics/rules",
               "basics/useful-controls",
               "basics/common-commands",
-              "basics/getting-around"
+              "basics/getting-around",
+              "basics/known-issues"
             ],
             "icon": "wpbeginner",
             "expanded": true
