@@ -38,8 +38,7 @@
               "basics/rules",
               "basics/useful-controls",
               "basics/common-commands",
-              "basics/getting-around",
-              "basics/known-issues"
+              "basics/getting-around"
             ],
             "icon": "wpbeginner",
             "expanded": true
@@ -69,19 +68,18 @@
             "directory": "none",
             "icon": "people",
             "pages": [
-              "civilian-activities/overview"
+              "civilian-activities/overview",
+              {
+                "group": "Criminal Activities",
+                "icon": "handcuffs",
+                "root": "criminal-activities/overview",
+                "pages": [
+                  "criminal-activities/store-robberies"
+                ]
+              }
             ]
           },
-          {
-            "group": "Criminal Activities",
-            "root": "criminal-activities/overview",
-            "directory": "none",
-            "icon": "handcuffs",
-            "pages": [
-              "criminal-activities/overview",
-              "criminal-activities/store-robberies"
-            ]
-          }
+          "basics/known-issues"
         ]
       }
     ]
