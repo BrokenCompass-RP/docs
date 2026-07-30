@@ -1,0 +1,196 @@
+---
+title: "Controls"
+---
+
+# Player-Facing Keybind Inventory
+
+This inventory covers rebindable key mappings registered through `lib.addKeybind` or `RegisterKeyMapping`. `lib.addKeybind` entries are rebindable because ox\_lib registers `+name` and `-name` commands through FiveM key mapping.
+
+## bcrp-spotlight
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[bcrp]/bcrp-spotlight/client/client.lua:105` | Spotlight left | `Config.LeftKey` GTA control | Move spotlight left | Rotates active vehicle spotlight left while held | Spotlight enabled; vehicle/server permission checks in resource | No | Uses `Config.LeftKey`; command below toggles spotlight |
+| `resources/[bcrp]/bcrp-spotlight/client/client.lua:110` | Spotlight right | `Config.RightKey` GTA control | Move spotlight right | Rotates active vehicle spotlight right while held | Spotlight enabled; vehicle/server permission checks in resource | No | Uses `Config.RightKey` |
+| `resources/[bcrp]/bcrp-spotlight/client/client.lua:115` | Spotlight up | `Config.UpKey` GTA control | Move spotlight up | Raises active vehicle spotlight while held | Spotlight enabled; vehicle/server permission checks in resource | No | Uses `Config.UpKey` |
+| `resources/[bcrp]/bcrp-spotlight/client/client.lua:120` | Spotlight down | `Config.DownKey` GTA control | Move spotlight down | Lowers active vehicle spotlight while held | Spotlight enabled; vehicle/server permission checks in resource | No | Uses `Config.DownKey` |
+
+## ox\_doorlock
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[ox]/ox_doorlock/client/utils.lua:161` | Door edit/select | `24` / `INPUT_ATTACK` | Doorlock editor click | Selects/edit doors in editor-like state | Doorlock UI/editor active | No | Doorlock client utilities |
+| `resources/[ox]/ox_doorlock/client/utils.lua:166` | Door alternate/select | `25` / `INPUT_AIM` | Doorlock editor alternate click | Alternate select/action while editor active | Doorlock UI/editor active | No | Doorlock client utilities |
+
+## ox\_fuel
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[ox]/ox_fuel/client/init.lua:131` | `startfueling` | `E` | Fuel vehicle | Starts fueling the nearest eligible vehicle | Near fuel pump or can/refuel context; vehicle close enough | Yes | `RegisterCommand('startfueling')`; `fuel.startFueling` |
+
+## ox\_inventory
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[ox]/ox_inventory/client.lua:759` | `inv` | `client.keys[1]` | Open player inventory | Opens/closes player inventory, drop, or nearby inventory | Inventory not blocked; NUI state checks | Yes | `client.openInventory`, `client.closeInventory` |
+| `resources/[ox]/ox_inventory/client.lua:786` | `inv2` | `client.keys[2]` | Open secondary inventory | Opens glovebox/trunk/secondary inventory | Disabled if same key as primary inventory; vehicle/entity context | Yes | `Inventory.OpenTrunk`, `client.openInventory` |
+| `resources/[ox]/ox_inventory/client.lua:829` | `reloadweapon` | `R` | Reload weapon | Uses compatible ammo for current weapon | Current weapon, ammo, durability, `canUseItem` | Yes | `Inventory.UseItem` |
+| `resources/[ox]/ox_inventory/client.lua:850` | `hotbar` | `client.keys[3]` | Toggle hotbar | Shows/hides hotbar | Weapon wheel/NUI/progress inactive | Yes | NUI `toggleHotbar` |
+| `resources/[ox]/ox_inventory/client.lua:861` | `hotkey1`-`hotkey5` | `1`-`5` | Use hotbar slot | Uses item in slot 1-5 | Inventory closed, hotkeys enabled, NUI inactive | Yes | `useSlot(i)` |
+
+## ox\_lib
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[ox]/ox_lib/resource/interface/client/radial.lua:307` | `ox_lib-radial` | `J` | Open radial menu | Opens/closes ox\_lib radial menu | Radial not disabled | Yes | `lib.showRadial`, `lib.hideRadial` |
+| `resources/[ox]/ox_lib/resource/interface/client/progress.lua:223` | `cancelprogress` | `X` | Cancel progress | Cancels active cancellable progress | Progress active and `canCancel` true | Yes | `RegisterCommand('cancelprogress')` |
+
+## ox\_target
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[ox]/ox_target/client/main.lua:373` | Configured target keybind | Resource config | Target eye/menu | Starts/stops targeting and selects target options | ox\_target active; targetable entity/zone | Yes | `lib.addKeybind(keybind)`, ox\_target option callbacks |
+
+## pma-voice
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[voice]/pma-voice/client/module/radio.lua:260` | `+radiotalk` | `voice_defaultRadio` convar, default `LMENU` | Talk over radio | Starts/stops radio transmit | On radio channel; pma-voice radio enabled | Yes | `pma-voice:setTalkingOnRadio` |
+| `resources/[voice]/pma-voice/client/commands.lua:82` | `cycleproximity` | `voice_defaultCycle` convar, default `F11` | Cycle Proximity | Cycles voice proximity mode | Voice modes configured | Yes | `pma-voice:setTalkingMode` |
+
+## ps-dispatch
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/ps-dispatch/client/main.lua:254` | `RespondToDispatch` | `Config.RespondKeybind` | Set waypoint to last call location | Sets waypoint to latest active dispatch and attaches unit | Valid dispatch job, on duty, active call, cooldown | Yes | `ps-dispatch:server:attach`, callback `ps-dispatch:callback:getLatestDispatch` |
+| `resources/[standalone]/ps-dispatch/client/main.lua:261` | `OpenDispatchMenu` | `Config.OpenDispatchMenu` | Open Dispatch Menu | Opens dispatch call list UI | Valid dispatch job; call list exists | Yes | callback `ps-dispatch:callback:getCalls`, NUI |
+
+## qbx\_binoculars
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_binoculars/client/main.lua:65` | Binoculars keybind | Config/default in file | Binoculars | Toggles binocular view | Has/uses binocular item or active state | Yes | Binocular client camera code |
+| `resources/[qbx]/qbx_binoculars/client/main.lua:25` | Zoom in | Config scroll up control | Binocular zoom | Zooms binocular camera in | Binocular view active | No | GTA control check |
+| `resources/[qbx]/qbx_binoculars/client/main.lua:29` | Zoom out | Config scroll down control | Binocular zoom | Zooms binocular camera out | Binocular view active | No | GTA control check |
+
+## qbx\_hud
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_hud/client/main.lua:99` | HUD menu keybind | Resource config | HUD menu | Opens/toggles HUD settings | Client loaded | Yes | HUD NUI |
+
+## qbx\_police
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[bcrp]/qbx_police/client/target.lua:186` | `+stopEscort` | `X` | Stop Escort (Police) | Stops escorting attached ped/player | Escort keybind registration event fired; escort active | Yes | `police:client:EscortPlayer` |
+| `resources/[bcrp]/qbx_police/client/objects.lua:269` | `despawnSpikeStrip` | `E`; pad `LRIGHT_INDEX` | Delete spike strip | Despawns/removes nearby spike strip | Spike strip placement/removal context | Yes | Police object removal routines |
+| `resources/[bcrp]/qbx_police/client/heli.lua:84` | Helicam zoom in | `241` / `INPUT_CURSOR_SCROLL_UP` | Helicam zoom | Zooms in | Police helicopter camera active | No | Helicam camera state |
+| `resources/[bcrp]/qbx_police/client/heli.lua:87` | Helicam zoom out | `242` / `INPUT_CURSOR_SCROLL_DOWN` | Helicam zoom | Zooms out | Police helicopter camera active | No | Helicam camera state |
+| `resources/[bcrp]/qbx_police/client/heli.lua:206` | Toggle helicam | Config control | Helicam toggle | Opens helicopter camera | In configured helicopter/seat | No | Helicam camera state |
+| `resources/[bcrp]/qbx_police/client/heli.lua:215` | Rappel | Config control | Rappel | Starts rappel from passenger seat | Helicopter seat 1 or 2 | No | Native rappel |
+| `resources/[bcrp]/qbx_police/client/heli.lua:221` | Spotlight | Config control | Spotlight | Toggles helicopter spotlight | Pilot/copilot seats | No | Spotlight camera state |
+| `resources/[bcrp]/qbx_police/client/heli.lua:244` | Vision mode | Config control | Vision mode | Cycles camera vision | Helicam active | No | Helicam camera state |
+| `resources/[bcrp]/qbx_police/client/heli.lua:252` | Lock on | Config control | Lock camera target | Locks camera onto vehicle | Helicam active, target exists | No | Helicam target state |
+
+## qbx\_properties
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_properties/client/decorating.lua:198` | `+gizmoTranslation` | `T` | Gizmo translation | Switches furniture gizmo to translation mode | Decorating mode active | Yes | Gizmo/furniture placement |
+| `resources/[qbx]/qbx_properties/client/decorating.lua:199` | `+gizmoRotation` | `R` | Gizmo rotation | Switches furniture gizmo to rotation mode | Decorating mode active | Yes | Gizmo/furniture placement |
+| `resources/[qbx]/qbx_properties/client/decorating.lua:200` | `+gizmoSelect` | Mouse left | Gizmo select | Selects/confirms gizmo interaction | Decorating mode active | Yes | Gizmo/furniture placement |
+| `resources/[qbx]/qbx_properties/client/decorating.lua:201` | `+gizmoLocal` | `L` | Gizmo local | Toggles local/world transform mode | Decorating mode active | Yes | Gizmo/furniture placement |
+
+## qbx\_seatbelt
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_seatbelt/client/main.lua:125` | `toggleseatbelt` | `config.keybind` | Seatbelt toggle | Toggles seatbelt or harness | In vehicle; not bike/bicycle/boat classes | Yes | Seatbelt/harness state |
+
+## qbx\_smallresources
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_smallresources/qbx_crouch/client.lua:16` | `crouch` | `K` | Crouch | Toggles crouch movement | Not in vehicle | Yes | `LocalPlayer.state.crouch` |
+| `resources/[qbx]/qbx_smallresources/qbx_cruise/client.lua:72` | `toggle_cruise_control` | `Y` | Toggle cruise control | Enables/disables cruise control | Driver seat; supported vehicle class | Yes | `TriggerCruiseControl` |
+| `resources/[qbx]/qbx_smallresources/qbx_noshuff/client.lua:35` | `shuffleSeat` | `config.shuffleSeatKey` | Shuffle seat | Lets player shuffle to next vehicle seat | In vehicle | Yes | Native seat task |
+| `resources/[qbx]/qbx_smallresources/qbx_tackle/client.lua:1` | `tackle` | `E` | Tackle | Tackles nearby player while running/sprinting | Not in vehicle; not handcuffed; running/sprinting | Yes | Server/client tackle events |
+| `resources/[qbx]/qbx_smallresources/qbx_teleports/client.lua:87` | `passage` | `E`; pad `LRIGHT_INDEX` | Entry through passage | Uses configured teleport passage | Inside teleport point | Yes | Teleport destination logic |
+
+## qbx\_vehiclekeys
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[qbx]/qbx_vehiclekeys/client/main.lua:100` | `togglelocks` | `L` | Toggle locks | Locks/unlocks closest accessible vehicle | Has vehicle keys/access; vehicle within configured distance; not no-lock/shared | Yes | `qb-vehiclekeys:server:setVehLockState`, `qbx.playAudio` |
+| `resources/[qbx]/qbx_vehiclekeys/client/main.lua:144` | `toggleengine` | `config.keySearchBind` | Toggle engine | Starts/stops current vehicle engine | Driver seat; has ignition access | Yes | Engine state natives |
+| `resources/[qbx]/qbx_vehiclekeys/client/searchkeys.lua:63` | `searchkeys` | `H`; pad `LRIGHT_INDEX` | Search keys | Searches/hotwires for keys | Driver seat; no key access; vehicle allows find-keys chance | Yes | `qbx_vehiclekeys:server:findKeys`, `SendPoliceAlertAttempt` |
+
+## srp-rptools
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[srp]/srp-rptools/nv_sit_on_every_chair/client/client.lua:74` | `neveradev:sit:stand_up_x` | `X` | Nevera - Stand Up X | Runs stand-up command | Player is sitting | Yes | `ExecuteCommand('neveradev:sit:stand_up')` |
+| `resources/[srp]/srp-rptools/nv_sit_on_every_chair/client/client.lua:75` | `neveradev:sit:stand_up_space` | `SPACE` | Nevera - Stand Up SPACE | Runs stand-up command | Player is sitting | Yes | `ExecuteCommand('neveradev:sit:stand_up')` |
+
+## srp-vehiclecontrols
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[srp]/srp-vehiclecontrols/client.lua:152` | `Toggle Windows` | `F9` | Toggle windows up or down | Raises/lowers front windows and stores statebag `windowState` | In vehicle; driver required to succeed | Yes | `Entity(vehicle).state.windowState` |
+| `resources/[srp]/srp-vehiclecontrols/client.lua:162` | `bcrp_anchor` | `F10` | Toggle boat anchor on or off | Drops/raises a model-native boat anchor and stores statebag `anchorState` | Boat operator; network control; low speed and anchorable water required to deploy | Yes | `Entity(vehicle).state.anchorState` |
+
+## citra-taxi
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/citra-taxi/client/main.lua:202` | `taxienterexit` | `F` | Enter / Exit a Taxi | Enters or exits NPC taxi and pays fare when exiting | Taxi state active/available | Yes | `citra-taxi:server:payFare` |
+
+## jim-boarding
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/jim-boarding/client/controls.lua:1` | `skategetoff` | `G` | Get off board | Detaches from skateboard/surfboard | Attached and board not airborne | Yes | `stopTempCam`, native detach/task calls |
+| `resources/[standalone]/jim-boarding/client/controls.lua:15` | `+skateforward` | `W` | Skate forward | Applies forward vehicle temp action | Attached and not overspeed | Yes | Skateboard driver task |
+| `resources/[standalone]/jim-boarding/client/controls.lua:31` | `+skatebackward` | `S` | Skate backward | Applies backward/brake action | Attached and not overspeed | Yes | Skateboard driver task |
+| `resources/[standalone]/jim-boarding/client/controls.lua:52` | `+skateleft` | `A` | Skate left | Steers/rotates left | Attached and not overspeed | Yes | `surfBoardRotate` or direction state |
+| `resources/[standalone]/jim-boarding/client/controls.lua:69` | `+skateright` | `D` | Skate right | Steers/rotates right | Attached and not overspeed | Yes | `surfBoardRotate` or direction state |
+| `resources/[standalone]/jim-boarding/client/controls.lua:101` | `skatejump` | `SPACE` | Jump/trick | Charges jump; performs tricks if airborne | Attached; not surfboard for jump | Yes | `jim-skills` exports if present |
+| `resources/[standalone]/jim-boarding/client/camera.lua:1` | `skatecam` | `H` | Lock camera | Toggles board camera | Attached | Yes | Script camera |
+| `resources/[standalone]/jim-boarding/client/camera.lua:9` | `+flipcam` | `C` | Flip camera | Temporarily flips board camera | Attached | Yes | Script camera |
+
+## jim-trains
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/jim-trains/client/client.lua:185` | `getoffnext` | `G` | Get Off Next Stop | Toggles leaving train at next stop | Train ride/ticket system active | Yes | `getOffNextStop` state |
+
+## randol\_medical
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/randol_medical/client/cl_open.lua:286` | `emsactions` | `Config.ActionsKeybind` | EMS Menu | Opens EMS action menu | EMS/medical job logic in menu handler | Yes | `RegisterCommand('emsactions')` |
+
+## scully\_emotemenu
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/scully_emotemenu/client/menu.lua:443` | `Config.menuCommands[1]` | `Config.menuKeybind` | Open emote menu | Opens emote menu | Menu enabled | Yes | Emote menu command |
+| `resources/[standalone]/scully_emotemenu/client/modules/handsup.lua:1` | Hands up keybind | Module default | Hands up | Toggles hands-up emote | Module enabled | Yes | Emote state |
+| `resources/[standalone]/scully_emotemenu/client/modules/point.lua:55` | Point keybind | Module default | Point | Toggles pointing | Module enabled | Yes | Pointing animation |
+| `resources/[standalone]/scully_emotemenu/client/modules/ragdoll.lua:6` | Ragdoll keybind | Module default | Ragdoll | Toggles ragdoll | Module enabled | Yes | Ragdoll native |
+| `resources/[standalone]/scully_emotemenu/client/modules/stance.lua:105` | Stance keybind | Module default | Stance | Cycles/toggles stance | Module enabled | Yes | Stance animation |
+| `resources/[standalone]/scully_emotemenu/client/main.lua:1060` | Emote cancel keybind | Config/module default | Cancel emote | Cancels current emote | Emote active | Yes | Emote cancel logic |
+| `resources/[standalone]/scully_emotemenu/client/main.lua:1071` | Ptfx keybind | Config/module default | Particle effect | Triggers/cycles emote ptfx | Emote/ptfx active | Yes | Ptfx logic |
+| `resources/[standalone]/scully_emotemenu/client/main.lua:1095` | Additional emote keybind | Config/module default | Emote module keybind | Module-defined emote action | Module enabled | Yes | Emote logic |
+
+## wk\_wars2x
+
+| File:line | Name | Default key | Description | What it does | Conditions | Rebindable | Related events/exports |
+| --- | --- | --: | --- | --- | --- | --- | --- |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:56` | `radar_remote` | `CONFIG.keyDefaults.remote_control` | Open Remote Control | Opens radar remote | Radar resource active | Yes | Radar UI/state |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:66` | `radar_fr_ant` | `CONFIG.keyDefaults.front_lock` | Front Antenna Lock/Unlock | Toggles front antenna lock | Radar active | Yes | Radar antenna state |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:76` | `radar_bk_ant` | `CONFIG.keyDefaults.rear_lock` | Rear Antenna Lock/Unlock | Toggles rear antenna lock | Radar active | Yes | Radar antenna state |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:86` | `radar_fr_cam` | `CONFIG.keyDefaults.plate_front_lock` | Front Plate Reader Lock/Unlock | Toggles front plate reader lock | Radar active | Yes | Plate reader state |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:96` | `radar_bk_cam` | `CONFIG.keyDefaults.plate_rear_lock` | Rear Plate Reader Lock/Unlock | Toggles rear plate reader lock | Radar active | Yes | Plate reader state |
+| `resources/[standalone]/wk_wars2x/cl_radar.lua:102` | `radar_key_lock` | `CONFIG.keyDefaults.key_lock` | Toggle Keybind Lock | Locks/unlocks radar keybind handling | Radar active | Yes | Radar key lock state |
