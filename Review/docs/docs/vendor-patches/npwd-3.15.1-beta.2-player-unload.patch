@@ -1,0 +1,93 @@
+diff --git a/apps/game/server/players/player.service.ts b/apps/game/server/players/player.service.ts
+index 614ce02..1129a20 100644
+--- a/apps/game/server/players/player.service.ts
++++ b/apps/game/server/players/player.service.ts
+@@ -16,12 +16,14 @@ class _PlayerService {
+   private readonly playersByIdentifier: Collection<string, Player>;
+   private readonly playerDB: _PlayerRepo;
+   private readonly callService: typeof CallsService;
++  private readonly unloadsByPlayer: WeakMap<Player, Promise<void>>;
+ 
+   constructor() {
+     this.playersBySource = new Collection<number, Player>();
+     this.playersByIdentifier = new Collection<string, Player>();
+     this.playerDB = PlayerRepo;
+     this.callService = CallsService;
++    this.unloadsByPlayer = new WeakMap<Player, Promise<void>>();
+     playerLogger.debug('Player Service started');
+   }
+ 
+@@ -40,10 +42,15 @@ class _PlayerService {
+    * Deletes a player from both map by source & identifier
+    * @param source - The player's source
+    */
+-  deletePlayerFromMaps(source: number) {
+-    const identifier = this.playersBySource.get(source).getIdentifier();
+-    this.playersByIdentifier.delete(identifier);
++  deletePlayerFromMaps(source: number, player: Player): boolean {
++    if (this.playersBySource.get(source) !== player) return false;
++
++    const identifier = player.getIdentifier();
++    if (this.playersByIdentifier.get(identifier) === player) {
++      this.playersByIdentifier.delete(identifier);
++    }
+     this.playersBySource.delete(source);
++    return true;
+   }
+ 
+   /**
+@@ -231,8 +238,8 @@ class _PlayerService {
+   /**
+    * Clear all data from the database we don't want to stored after the player as disconnected.
+    */
+-  async clearPlayerData(src: number) {
+-    const identifier = this.getIdentifier(src);
++  async clearPlayerData(player: Player) {
++    const identifier = player.getIdentifier();
+     if (!config.marketplace.persistListings) {
+       try {
+         await MarketplaceService.handleDeleteListingsOnDrop(identifier);
+@@ -247,11 +254,39 @@ class _PlayerService {
+    * @param src - Source of player being unloaded
+    **/
+   async handleUnloadPlayerEvent(src: number) {
+-    await this.clearPlayerData(src);
++    const player = this.getPlayer(src);
++    if (!player) {
++      playerLogger.warn(`Ignoring unload for source (${src}): NPWD player is already absent`);
++      return;
++    }
++
++    const pendingUnload = this.unloadsByPlayer.get(player);
++    if (pendingUnload) {
++      playerLogger.debug(`Ignoring duplicate unload for source (${src}): cleanup is in progress`);
++      await pendingUnload;
++      return;
++    }
+ 
+-    this.deletePlayerFromMaps(src);
+-    emitNet(PhoneEvents.SET_PLAYER_LOADED, src, false);
+-    playerLogger.info(`Unloaded NPWD Player, source: (${src})`);
++    const unload = (async () => {
++      await this.clearPlayerData(player);
++
++      if (!this.deletePlayerFromMaps(src, player)) {
++        playerLogger.warn(
++          `Finished unload for source (${src}) without removing its replacement NPWD player`,
++        );
++        return;
++      }
++
++      emitNet(PhoneEvents.SET_PLAYER_LOADED, src, false);
++      playerLogger.info(`Unloaded NPWD Player, source: (${src})`);
++    })();
++
++    this.unloadsByPlayer.set(player, unload);
++    try {
++      await unload;
++    } finally {
++      this.unloadsByPlayer.delete(player);
++    }
+   }
+ }
+
