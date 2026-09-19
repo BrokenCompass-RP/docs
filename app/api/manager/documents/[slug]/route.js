@@ -21,13 +21,14 @@ export async function GET(_request, { params }) {
 }
 
 export async function PUT(request, { params }) {
-  if (!(await getManagerIdentity())) return unavailable();
+  const identity = await getManagerIdentity();
+  if (!identity) return unavailable();
   const { slug } = await params;
   if (!getDocumentDefinition(slug)) return unavailable();
   try {
     const document = await request.json();
     const source = serializeEditableDocument(document);
-    await draftRepository.save(slug, source);
+    await draftRepository.save(slug, source, { authorIdentity: identity });
     return NextResponse.json({ saved: true, document: toEditableDocument(source) });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });

@@ -7,12 +7,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test"
+    "test": "node --test",
+    "db:migrate": "node scripts/db-migrate.js",
+    "db:initialize": "node scripts/db-initialize.js"
   },
   "dependencies": {
     "gray-matter": "4.0.3",
     "markdown-it": "15.0.2",
     "next": "16.3.5",
+    "pg": "^8.16.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   }

@@ -262,7 +262,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
 
         <section className="version-panel">
           <div><p className="eyebrow">Published record</p><h2>Version history</h2></div>
-          <p>Current <strong>{currentVersion.versionId}</strong> · First published {new Date(currentVersion.firstPublished).toLocaleString()} · Last updated {new Date(currentVersion.publishedAt).toLocaleString()}</p>
+          <p>Current <strong>{currentVersion.versionId}</strong> · First published {currentVersion.firstPublished ? new Date(currentVersion.firstPublished).toLocaleString() : "Unknown"} · Last updated {new Date(currentVersion.publishedAt).toLocaleString()}</p>
           <ol>
             {versions.map((version) => <li key={version.versionId}>
               <span><strong>{version.versionId}</strong> · {version.publicationKind} by {version.publishedBy} · {new Date(version.publishedAt).toLocaleString()}</span>

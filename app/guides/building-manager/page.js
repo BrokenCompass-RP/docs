@@ -45,7 +45,7 @@ export default async function BuildingManagerPage({ searchParams }) {
           <div className="markdown" dangerouslySetInnerHTML={{ __html: section.html }} />
           <FlagForReview documentId="building-manager" sectionId={section.sectionId} sectionHeading={section.heading} />
         </section>)}
-        <footer className="publication-meta">First published {new Date(document.version.firstPublished).toLocaleDateString()} · Last updated {new Date(document.version.publishedAt).toLocaleDateString()} · {document.version.versionId}</footer>
+        <footer className="publication-meta">First published {document.version.firstPublished ? new Date(document.version.firstPublished).toLocaleDateString() : "Unknown"} · Last updated {new Date(document.version.publishedAt).toLocaleDateString()} · {document.version.versionId}</footer>
         <FlagForReview documentId="building-manager" />
       </article>
       <ViewAsControl identity={identity} projection={projection} returnTo="/guides/building-manager" />
