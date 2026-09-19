@@ -19,7 +19,7 @@ function freshSection(defaultVisibility) {
   };
 }
 
-export function DocumentManager({ identity, documents, selectedSlug, initialDocument, initialHasDraft, initialCurrentVersion, initialVersions, initialReviews }) {
+export function DocumentManager({ identity, documents, selectedSlug, initialDocument, initialHasDraft, initialCurrentVersion, initialVersions, initialReviews, browseLocations }) {
   const [document, setDocument] = useState(initialDocument);
   const [hasDraft, setHasDraft] = useState(initialHasDraft);
   const [filter, setFilter] = useState("");
@@ -33,6 +33,9 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
   const [reviews, setReviews] = useState(initialReviews);
   const [showResolved, setShowResolved] = useState(false);
   const [commentBodies, setCommentBodies] = useState({});
+  const [showNewDocument, setShowNewDocument] = useState(false);
+  const [newDocument, setNewDocument] = useState({ title: "", description: "", browsePath: browseLocations[0]?.path.join("/") ?? "", defaultVisibility: "public" });
+  const [imageForms, setImageForms] = useState({});
 
   const visibleDocuments = useMemo(() => documents.filter((item) =>
     item.title.toLowerCase().includes(filter.toLowerCase())
@@ -99,6 +102,29 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
     setBusy(false);
   }
 
+  async function createDocument(event) {
+    event.preventDefault(); setBusy(true);
+    const response = await fetch("/api/manager/documents", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...newDocument, browsePath: newDocument.browsePath.split("/") }) });
+    const payload = await response.json();
+    if (response.ok) window.location.assign(`/manager?document=${payload.document.slug}`);
+    else { setStatus(`Document not created: ${payload.error}`); setBusy(false); }
+  }
+
+  async function uploadImage(event, section) {
+    event.preventDefault(); const values = imageForms[section.id] ?? {}; const file = values.file;
+    if (!file) { setStatus("Choose an image to upload."); return; }
+    const form = new FormData(); form.set("image", file); form.set("alt", values.alt ?? ""); form.set("caption", values.caption ?? ""); form.set("visibility", section.visibility);
+    setBusy(true);
+    const response = await fetch(`/api/manager/documents/${selectedSlug}/assets`, { method: "POST", body: form });
+    const payload = await response.json();
+    if (response.ok) {
+      updateSection(section.id, { markdown: `${section.markdown.trimEnd()}\n\n${payload.markdown}` });
+      setImageForms((current) => ({ ...current, [section.id]: {} }));
+      setStatus("Image uploaded and inserted. Save the draft to preserve the reference.");
+    } else setStatus(`Image not uploaded: ${payload.error}`);
+    setBusy(false);
+  }
+
   async function discardDraft() {
     if (!window.confirm("Discard this unpublished draft and restore the canonical document?")) return;
     setBusy(true);
@@ -112,7 +138,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
     const response = await fetch("/api/manager/preview", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ document, visibility })
+      body: JSON.stringify({ document, visibility, slug: selectedSlug })
     });
     const payload = await response.json();
     setPreviewHtml(response.ok ? payload.html : `<p>${payload.error}</p>`);
@@ -130,6 +156,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
       setHasDraft(false);
       setDirty(false);
       setStatus(`${payload.version.versionId} published. Readers and search now use it.`);
+      window.setTimeout(() => window.location.reload(), 500);
     } else setStatus(`Publish failed: ${payload.error}`);
     setBusy(false);
   }
@@ -190,6 +217,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
       <aside className="manager-sidebar">
         <label htmlFor="document-filter">Documents</label>
         <input id="document-filter" type="search" placeholder="Filter documents" value={filter} onChange={(event) => setFilter(event.target.value)} />
+        <button type="button" className="new-document-button" onClick={() => setShowNewDocument((value) => !value)}>+ New document</button>
         <nav aria-label="Managed documents">
           {visibleDocuments.map((item) => (
             <a className={item.slug === selectedSlug ? "manager-doc active" : "manager-doc"} href={`/manager?document=${item.slug}`} key={item.slug}>
@@ -202,6 +230,14 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
       </aside>
 
       <section className="manager-workspace">
+        {showNewDocument ? <form className="new-document-panel" onSubmit={createDocument}>
+          <div><p className="eyebrow">Canonical document</p><h2>New document</h2></div>
+          <label>Title<input required value={newDocument.title} onChange={(event) => setNewDocument({ ...newDocument, title: event.target.value })} /></label>
+          <label>Description<input value={newDocument.description} onChange={(event) => setNewDocument({ ...newDocument, description: event.target.value })} /></label>
+          <label>Browse location<select required value={newDocument.browsePath} onChange={(event) => setNewDocument({ ...newDocument, browsePath: event.target.value })}>{browseLocations.map((location) => <option value={location.path.join("/")} key={location.path.join("/")}>{location.path.map((part) => part.replaceAll("-", " ")).join(" → ")}</option>)}</select></label>
+          <label>Default visibility<select value={newDocument.defaultVisibility} onChange={(event) => setNewDocument({ ...newDocument, defaultVisibility: event.target.value })}>{VISIBILITIES.map((value) => <option value={value} key={value}>{LABELS[value]}</option>)}</select></label>
+          <div><button className="primary-button" disabled={busy} type="submit">Create draft</button><button className="quiet-button" type="button" onClick={() => setShowNewDocument(false)}>Cancel</button></div>
+        </form> : null}
         <div className="manager-title-row">
           <div>
             <p className="eyebrow">{hasDraft ? "Unpublished changes" : "Draft changes"}</p>
@@ -218,6 +254,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
           <label>Title<input value={document.title} onChange={(event) => { setDocument({ ...document, title: event.target.value }); setDirty(true); setStatus("Unsaved draft changes."); }} /></label>
           <label>Description<input value={document.description} onChange={(event) => { setDocument({ ...document, description: event.target.value }); setDirty(true); setStatus("Unsaved draft changes."); }} /></label>
           <label>Default visibility<select value={document.defaultVisibility} onChange={(event) => { setDocument({ ...document, defaultVisibility: event.target.value }); setDirty(true); setStatus("Unsaved draft changes."); }}>{VISIBILITIES.map((value) => <option value={value} key={value}>{LABELS[value]}</option>)}</select></label>
+          <label>Browse location<select value={document.browsePath.join("/")} onChange={(event) => { setDocument({ ...document, browsePath: event.target.value.split("/") }); setDirty(true); setStatus("Unsaved draft changes."); }}>{browseLocations.map((location) => <option value={location.path.join("/")} key={location.path.join("/")}>{location.path.map((part) => part.replaceAll("-", " ")).join(" → ")}</option>)}</select></label>
         </div>
 
         <div className="visibility-summary" aria-label="Visibility summary">
@@ -243,6 +280,12 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
                 <button type="button" onClick={() => insertMarkup(section.id, "```\n", "\n```", "code block")}>Code block</button>
               </div>
               <textarea id={`editor-${section.id}`} value={section.markdown} onChange={(event) => updateSection(section.id, { markdown: event.target.value })} onPaste={(event) => handlePaste(event, section.id)} spellCheck="true" />
+              <form className="image-insert" onSubmit={(event) => uploadImage(event, section)}>
+                <label>Image<input type="file" accept="image/png,image/jpeg,image/gif,image/webp" onChange={(event) => setImageForms((current) => ({ ...current, [section.id]: { ...(current[section.id] ?? {}), file: event.target.files?.[0] } }))} /></label>
+                <label>Alt text <span>(required)</span><input required value={imageForms[section.id]?.alt ?? ""} onChange={(event) => setImageForms((current) => ({ ...current, [section.id]: { ...(current[section.id] ?? {}), alt: event.target.value } }))} /></label>
+                <label>Caption <span>(optional)</span><input value={imageForms[section.id]?.caption ?? ""} onChange={(event) => setImageForms((current) => ({ ...current, [section.id]: { ...(current[section.id] ?? {}), caption: event.target.value } }))} /></label>
+                <button type="submit" className="quiet-button" disabled={busy}>Upload and insert</button>
+              </form>
             </section>
           ))}
           <button type="button" className="add-section" onClick={() => setDocument({ ...document, sections: [...document.sections, freshSection(document.defaultVisibility)] })}>+ Add coherent section</button>
@@ -262,11 +305,11 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
 
         <section className="version-panel">
           <div><p className="eyebrow">Published record</p><h2>Version history</h2></div>
-          <p>Current <strong>{currentVersion.versionId}</strong> · First published {currentVersion.firstPublished ? new Date(currentVersion.firstPublished).toLocaleString() : "Unknown"} · Last updated {new Date(currentVersion.publishedAt).toLocaleString()}</p>
+          {currentVersion ? <p>Current <strong>{currentVersion.versionId}</strong> · First published {currentVersion.firstPublished ? new Date(currentVersion.firstPublished).toLocaleString() : "Unknown"} · Last updated {new Date(currentVersion.publishedAt).toLocaleString()}</p> : <p>This document has not been published.</p>}
           <ol>
             {versions.map((version) => <li key={version.versionId}>
               <span><strong>{version.versionId}</strong> · {version.publicationKind} by {version.publishedBy} · {new Date(version.publishedAt).toLocaleString()}</span>
-              <button type="button" className="quiet-button" disabled={busy || version.versionId === currentVersion.versionId} onClick={() => recoverVersion(version.versionId)}>Recover</button>
+              <button type="button" className="quiet-button" disabled={busy || version.versionId === currentVersion?.versionId} onClick={() => recoverVersion(version.versionId)}>Recover</button>
             </li>)}
           </ol>
         </section>

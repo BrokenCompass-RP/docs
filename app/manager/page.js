@@ -6,6 +6,7 @@ import { listDocuments, loadCanonicalDocument, loadCanonicalSource, loadPublishe
 import { getManagerIdentity } from "../../lib/manager-access.js";
 import { versionRepository } from "../../lib/versions.js";
 import { reviewService } from "../../lib/review-operations.js";
+import { discoverBrowseFolders } from "../../lib/browse.js";
 
 export const dynamic = "force-dynamic";
 
@@ -20,26 +21,27 @@ export default async function ManagerPage({ searchParams }) {
 
   const params = await searchParams;
   const requestedSlug = typeof params.document === "string" ? params.document : "building-manager";
-  const definitions = listDocuments();
+  const definitions = await listDocuments();
   const selected = definitions.find((document) => document.slug === requestedSlug);
   if (!selected) notFound();
 
   const documentList = await Promise.all(definitions.map(async (definition) => {
-    const canonical = await loadCanonicalDocument(definition.slug);
     const reviews = await reviewService.list(definition.slug, identity);
+    let publishedMetadata = null;
+    if (definition.published) publishedMetadata = await loadCanonicalDocument(definition.slug);
     return {
       slug: definition.slug,
-      title: canonical.frontmatter.title,
-      defaultVisibility: canonical.frontmatter.default_visibility,
+      title: publishedMetadata?.frontmatter.title ?? definition.title,
+      defaultVisibility: publishedMetadata?.frontmatter.default_visibility ?? definition.defaultVisibility,
       url: definition.url,
       hasDraft: (await draftRepository.read(definition.slug)) !== null,
       openFlags: reviews.filter((review) => review.status === "open").length
     };
   }));
 
-  const canonicalSource = await loadCanonicalSource(selected.slug);
   const draftSource = await draftRepository.read(selected.slug);
-  const currentVersion = await loadPublishedVersion(selected.slug);
+  const canonicalSource = draftSource === null ? await loadCanonicalSource(selected.slug) : null;
+  const currentVersion = selected.published ? await loadPublishedVersion(selected.slug) : null;
   const versions = await versionRepository.listVersions(selected.slug);
   const reviews = await reviewService.list(selected.slug, identity);
 
@@ -48,11 +50,12 @@ export default async function ManagerPage({ searchParams }) {
       identity={identity}
       documents={documentList}
       selectedSlug={selected.slug}
-      initialDocument={toEditableDocument(draftSource ?? canonicalSource)}
+      initialDocument={{ ...toEditableDocument(draftSource ?? canonicalSource), browsePath: (await draftRepository.readBrowsePath?.(selected.slug)) ?? selected.browsePath }}
       initialHasDraft={draftSource !== null}
       initialCurrentVersion={currentVersion}
       initialVersions={versions}
       initialReviews={reviews}
+      browseLocations={(await discoverBrowseFolders()).map((folder) => ({ label: folder.name, path: folder.segments }))}
     />
   );
 }

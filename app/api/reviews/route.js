@@ -10,7 +10,7 @@ export async function POST(request) {
     const identity = authorization.identity;
     const input = await request.json();
     if (input.website) throw new Error("Invalid submission");
-    if (!getDocumentDefinition(input.documentId)) throw new Error("Document not found");
+    if (!(await getDocumentDefinition(input.documentId))) throw new Error("Document not found");
     const document = await loadCanonicalDocument(input.documentId);
     let section = null;
     if (input.sectionId) {

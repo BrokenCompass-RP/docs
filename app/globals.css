@@ -15,9 +15,14 @@
 
 body {
   margin: 0;
+  background-color: var(--paper);
   background:
     radial-gradient(circle at 85% 0%, rgba(133, 111, 86, 0.22), transparent 32rem),
     var(--paper);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.65;
@@ -32,13 +37,29 @@ a:focus-visible, button:focus-visible, select:focus-visible {
 }
 
 .shell { width: min(940px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 80px; }
-.landing { min-height: 100vh; display: grid; align-content: center; justify-items: start; }
+.landing { min-height: 100vh; display: block; }
+.home-header { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.home-header .auth-controls, .home-header .auth-login { margin: 0; }
+.home-hero { padding: clamp(38px, 8vh, 78px) 0 48px; }
 .landing h1, .document h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 8vw, 5rem); line-height: 0.98; margin: 0.15em 0; letter-spacing: -0.04em; }
 .lede { color: var(--muted); font-size: 1.12rem; max-width: 68ch; }
 .eyebrow { color: var(--brand); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
 .primary-link { display: inline-block; margin-top: 22px; padding: 12px 18px; border: 1px solid var(--brand); border-radius: 6px; text-decoration: none; font-weight: 700; }
 .secondary-link { display: inline-block; margin-top: 22px; padding: 12px 18px; color: var(--muted); }
 .home-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.browse-home { width: 100%; padding-top: 28px; border-top: 1px solid var(--line); }
+.browse-home h2, .browse-header h1 { margin: .15em 0 .7em; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; }
+.browse-header { margin-bottom: 34px; }
+.browse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 38px; }
+.browse-card { display: block; min-height: 150px; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.browse-card:hover { border-color: var(--brand); background: var(--surface-2); }
+.browse-card h3 { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; }
+.browse-card p { color: var(--muted); font-size: .88rem; }
+.browse-card small { color: var(--brand-strong); }
+.browse-documents { display: grid; gap: 12px; }
+.browse-documents article { padding: 18px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.browse-documents h3, .browse-documents p { margin: 0; }
+.browse-documents p { margin-top: 6px; color: var(--muted); }
 .topbar { display: flex; gap: 10px; color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
 .topbar .nav-action { margin-left: auto; }
 .identity-panel { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: 18px; margin-bottom: 34px; background: var(--surface-2); border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: 8px; }
@@ -102,6 +123,13 @@ a:focus-visible, button:focus-visible, select:focus-visible {
 .manager-sidebar { grid-column: 1; padding: 22px 16px; border-right: 1px solid var(--line); background: #191611; }
 .manager-sidebar > label { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
 .manager-sidebar input { width: 100%; min-height: 40px; padding: 0 11px; background: var(--paper); border: 1px solid var(--line); border-radius: 5px; color: var(--ink); }
+.new-document-button { width: 100%; min-height: 40px; margin-top: 10px; border: 1px solid var(--brand); border-radius: 5px; background: transparent; color: var(--brand-strong); font-weight: 800; cursor: pointer; }
+.new-document-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 28px; padding: 18px; border: 1px solid var(--brand); border-radius: 8px; background: var(--surface); }
+.new-document-panel > div:first-child { grid-column: 1 / -1; }
+.new-document-panel h2 { margin: .1em 0; font-family: Georgia, "Times New Roman", serif; }
+.new-document-panel label, .image-insert label { display: grid; gap: 5px; color: var(--muted); font-size: .76rem; font-weight: 700; }
+.new-document-panel input, .new-document-panel select, .image-insert input { min-height: 39px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); }
+.new-document-panel > div:last-child { display: flex; align-items: end; gap: 8px; }
 .manager-sidebar nav { display: grid; gap: 4px; margin-top: 16px; }
 .manager-doc { display: grid; gap: 1px; padding: 10px 11px; border-radius: 5px; color: var(--ink); text-decoration: none; }
 .manager-doc small { color: var(--muted); }
@@ -115,7 +143,7 @@ a:focus-visible, button:focus-visible, select:focus-visible {
 .manager-actions button, .primary-button, .quiet-button, .add-section { min-height: 40px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--ink); font-weight: 700; cursor: pointer; }
 .manager-actions .primary-button { background: var(--brand); color: #17110b; border-color: var(--brand); }
 .manager-actions button:disabled { opacity: 0.45; cursor: not-allowed; }
-.document-fields { display: grid; grid-template-columns: 1fr 1.5fr 190px; gap: 12px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.document-fields { display: grid; grid-template-columns: 1fr 1.5fr 190px 230px; gap: 12px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
 .document-fields label, .editor-section header label { display: grid; gap: 5px; color: var(--muted); font-size: 0.76rem; font-weight: 700; }
 .document-fields input, .document-fields select, .editor-section select { width: 100%; min-height: 39px; padding: 7px 9px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; color: var(--ink); font: inherit; }
 .visibility-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0 24px; }
@@ -134,6 +162,11 @@ a:focus-visible, button:focus-visible, select:focus-visible {
 .format-toolbar { display: flex; gap: 4px; flex-wrap: wrap; padding: 8px 12px; background: #17140f; border-bottom: 1px solid var(--line); }
 .format-toolbar button { min-height: 30px; padding: 3px 8px; border: 1px solid #3a3228; border-radius: 4px; background: var(--paper); color: var(--muted); cursor: pointer; }
 .editor-section textarea { display: block; width: 100%; min-height: 240px; resize: vertical; padding: 18px; border: 0; background: #100f0c; color: var(--ink); font: 0.92rem/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; tab-size: 2; }
+.image-insert { display: grid; grid-template-columns: 1.2fr 1fr 1fr auto; align-items: end; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: #17140f; }
+.image-insert label span { font-weight: 400; }
+.knowledge-image { margin: 24px 0; }
+.knowledge-image img, .markdown > p > img { display: block; width: auto; max-width: 100%; height: auto; border-radius: 6px; }
+.knowledge-image figcaption { margin-top: 7px; color: var(--muted); font-size: .82rem; }
 .add-section { border-style: dashed; background: transparent; color: var(--brand-strong); }
 .manager-status { position: sticky; bottom: 8px; z-index: 2; width: fit-content; margin: 16px 0; padding: 8px 12px; background: #312a21; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: 0.85rem; }
 .preview-panel { margin-top: 34px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
@@ -170,6 +203,7 @@ a:focus-visible, button:focus-visible, select:focus-visible {
   .manager-sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
   .manager-sidebar nav { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
   .document-fields { grid-template-columns: 1fr; }
+  .image-insert, .new-document-panel { grid-template-columns: 1fr; }
   .visibility-summary { grid-template-columns: repeat(2, 1fr); }
 }
 

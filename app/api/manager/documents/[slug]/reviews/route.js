@@ -7,6 +7,6 @@ export async function GET(_request, { params }) {
   const identity = await getManagerIdentity();
   if (!identity) return new NextResponse(null, { status: 404 });
   const { slug } = await params;
-  if (!getDocumentDefinition(slug)) return new NextResponse(null, { status: 404 });
+  if (!(await getDocumentDefinition(slug))) return new NextResponse(null, { status: 404 });
   return NextResponse.json({ reviews: await reviewService.list(slug, identity) });
 }

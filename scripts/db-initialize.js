@@ -8,6 +8,7 @@ try {
   const versions = new PostgresVersionRepository(pool);
   for (const document of listDocumentDefinitions()) {
     const version = await versions.ensureInitialized(document.slug, await loadSeedSource(document.slug));
+    await pool.query("UPDATE documents SET browse_path=$2,route_path=$3 WHERE slug=$1", [document.slug, document.browsePath, document.url]);
     console.log(`${document.slug}: ${document.id} ${version.versionId}`);
   }
 } finally {

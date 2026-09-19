@@ -9,7 +9,7 @@ const unavailable = () => new NextResponse(null, { status: 404 });
 export async function GET(_request, { params }) {
   if (!(await getManagerIdentity())) return unavailable();
   const { slug } = await params;
-  if (!getDocumentDefinition(slug)) return unavailable();
+  if (!(await getDocumentDefinition(slug))) return unavailable();
   await loadPublishedVersion(slug);
   return NextResponse.json({ versions: await versionRepository.listVersions(slug) });
 }
@@ -18,7 +18,7 @@ export async function POST(request, { params }) {
   const authorization = await getManagerAuthorization();
   if (!authorization) return unavailable();
   const { slug } = await params;
-  if (!getDocumentDefinition(slug)) return unavailable();
+  if (!(await getDocumentDefinition(slug))) return unavailable();
   try {
     const { versionId } = await request.json();
     return NextResponse.json({ recovered: true, version: await publicationService.recoverVersion(slug, versionId, authorization.identity, authorization.actorId) });
