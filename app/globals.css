@@ -24,6 +24,8 @@ body {
 }
 
 a { color: var(--brand-strong); }
+.auth-controls, .auth-login { display: flex; gap: 10px; align-items: center; width: fit-content; margin: 10px 0 18px; color: var(--muted); font-size: .85rem; }
+.auth-controls button { border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; background: var(--surface); color: var(--ink); cursor: pointer; }
 a:focus-visible, button:focus-visible, select:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;

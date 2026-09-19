@@ -90,7 +90,7 @@ test("review API routes keep manager data behind server-side manager authorizati
     "../app/api/manager/documents/[slug]/reviews/[flagId]/resolve/route.js"
   ]) {
     const route = await readFile(new URL(relative, import.meta.url), "utf8");
-    assert.match(route, /getManagerIdentity/);
+    assert.match(route, /getManagerAuthorization|getManagerIdentity/);
     assert.match(route, /status: 404/);
   }
 });

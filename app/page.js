@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { AuthControls } from "../components/AuthControls.js";
+import { getRequestAuthorization } from "../lib/request-authorization.js";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const authorization = await getRequestAuthorization();
   return (
     <main className="shell landing">
       <p className="eyebrow">Broken Compass knowledge</p>
@@ -13,6 +16,7 @@ export default function HomePage() {
         <Link className="primary-link" href="/search">Search knowledge</Link>
         <Link className="secondary-link" href="/guides/building-manager">Open the Building Manager guide</Link>
       </div>
+      <AuthControls authorization={authorization} />
     </main>
   );
 }

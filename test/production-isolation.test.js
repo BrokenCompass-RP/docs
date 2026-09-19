@@ -2,13 +2,14 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-test("production identity resolution is hard-coded public before cookie access", async () => {
-  const source = await readFile(new URL("../lib/dev-identity.js", import.meta.url), "utf8");
-  const productionGuard = source.indexOf('process.env.NODE_ENV !== "development"');
-  const cookieRead = source.indexOf("await cookies()");
-  assert.ok(productionGuard >= 0);
-  assert.ok(cookieRead > productionGuard);
-  assert.match(source, /return "public"/);
+test("development simulator cookie is read only inside a development guard", async () => {
+  const source = await readFile(new URL("../lib/request-authorization.js", import.meta.url), "utf8");
+  const developmentGuard = source.indexOf('process.env.NODE_ENV === "development"');
+  const simulatorRead = source.indexOf("DEV_IDENTITY_COOKIE");
+  assert.ok(developmentGuard >= 0);
+  assert.ok(source.indexOf("cookieStore.get(DEV_IDENTITY_COOKIE)") > developmentGuard);
+  assert.ok(simulatorRead >= 0);
+  assert.match(source, /identity: "public"/);
 });
 
 test("development identity endpoint returns 404 outside development", async () => {
@@ -17,11 +18,11 @@ test("development identity endpoint returns 404 outside development", async () =
   assert.match(source, /status: 404/);
 });
 
-test("manager access has an immutable production guard and named capability check", async () => {
+test("manager access depends on authenticated named capability", async () => {
   const accessSource = await readFile(new URL("../lib/manager-access.js", import.meta.url), "utf8");
-  assert.match(accessSource, /process\.env\.NODE_ENV !== "development"/);
+  assert.match(accessSource, /getRequestAuthorization/);
   assert.match(accessSource, /CAPABILITIES\.MANAGE_DOCUMENTS/);
-  assert.match(accessSource, /return null/);
+  assert.match(accessSource, /\? authorization : null/);
 });
 
 test("publish and version routes are all behind the guarded manager identity", async () => {
@@ -30,7 +31,7 @@ test("publish and version routes are all behind the guarded manager identity", a
     "../app/api/manager/documents/[slug]/versions/route.js"
   ]) {
     const source = await readFile(new URL(relative, import.meta.url), "utf8");
-    assert.match(source, /getManagerIdentity/);
+    assert.match(source, /getManagerAuthorization|getManagerIdentity/);
     assert.match(source, /status: 404/);
   }
 });

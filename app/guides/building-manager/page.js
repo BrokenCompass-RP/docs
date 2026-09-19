@@ -2,8 +2,9 @@ import Link from "next/link";
 import { DevIdentitySwitcher } from "../../../components/DevIdentitySwitcher.js";
 import { ViewAsControl } from "../../../components/ViewAsControl.js";
 import { FlagForReview } from "../../../components/FlagForReview.js";
+import { AuthControls } from "../../../components/AuthControls.js";
 import { CAPABILITIES, hasCapability } from "../../../lib/capability-policy.js";
-import { getDevelopmentIdentity } from "../../../lib/dev-identity.js";
+import { getRequestAuthorization } from "../../../lib/request-authorization.js";
 import { loadProjectedDocument } from "../../../lib/knowledge.js";
 import { resolveProjectionIdentity } from "../../../lib/view-as-policy.js";
 
@@ -18,7 +19,8 @@ export async function generateMetadata() {
 }
 
 export default async function BuildingManagerPage({ searchParams }) {
-  const identity = await getDevelopmentIdentity();
+  const authorization = await getRequestAuthorization();
+  const identity = authorization.identity;
   const params = await searchParams;
   const projection = resolveProjectionIdentity(identity, typeof params.viewAs === "string" ? params.viewAs : identity);
   const document = await loadProjectedDocument("building-manager", projection);
@@ -34,6 +36,7 @@ export default async function BuildingManagerPage({ searchParams }) {
       </nav>
 
       <DevIdentitySwitcher identity={identity} returnTo="/guides/building-manager" />
+      <AuthControls authorization={authorization} />
 
       <article className="document">
         <header>

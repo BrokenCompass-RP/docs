@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { DevIdentitySwitcher } from "../../../components/DevIdentitySwitcher.js";
 import { ViewAsControl } from "../../../components/ViewAsControl.js";
 import { FlagForReview } from "../../../components/FlagForReview.js";
+import { AuthControls } from "../../../components/AuthControls.js";
 import { CAPABILITIES, hasCapability } from "../../../lib/capability-policy.js";
-import { getDevelopmentIdentity } from "../../../lib/dev-identity.js";
+import { getRequestAuthorization } from "../../../lib/request-authorization.js";
 import { loadProjectedDocument } from "../../../lib/knowledge.js";
 import { resolveProjectionIdentity } from "../../../lib/view-as-policy.js";
 
@@ -12,7 +13,8 @@ export const dynamic = "force-dynamic";
 
 export default async function KnowledgeDocumentPage({ params, searchParams }) {
   const { slug } = await params;
-  const identity = await getDevelopmentIdentity();
+  const authorization = await getRequestAuthorization();
+  const identity = authorization.identity;
   const query = await searchParams;
   const projection = resolveProjectionIdentity(identity, typeof query.viewAs === "string" ? query.viewAs : identity);
   let document;
@@ -34,6 +36,7 @@ export default async function KnowledgeDocumentPage({ params, searchParams }) {
         {hasCapability(identity, CAPABILITIES.MANAGE_DOCUMENTS) ? <Link href={`/manager?document=${slug}`}>Edit draft</Link> : null}
       </nav>
       <DevIdentitySwitcher identity={identity} returnTo={document.url} />
+      <AuthControls authorization={authorization} />
       <article className="document">
         <header>
           <p className="eyebrow">Canonical guide · {projection} projection</p>

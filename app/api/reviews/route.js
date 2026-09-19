@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
-import { getDevelopmentIdentity } from "../../../lib/dev-identity.js";
+import { getRequestAuthorization } from "../../../lib/request-authorization.js";
 import { getDocumentDefinition, loadCanonicalDocument } from "../../../lib/knowledge.js";
 import { reviewService } from "../../../lib/review-operations.js";
 import { projectSections } from "../../../lib/access-markdown.js";
 
 export async function POST(request) {
   try {
-    const identity = await getDevelopmentIdentity();
+    const authorization = await getRequestAuthorization();
+    const identity = authorization.identity;
     const input = await request.json();
     if (input.website) throw new Error("Invalid submission");
     if (!getDocumentDefinition(input.documentId)) throw new Error("Document not found");
@@ -23,7 +24,7 @@ export async function POST(request) {
       reason: input.reason,
       initialComment: input.initialComment,
       versionAtReport: document.version.versionId
-    }, identity);
+    }, identity, authorization.actorId);
     return NextResponse.json({ submitted: true, flagId: flag.flagId }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });

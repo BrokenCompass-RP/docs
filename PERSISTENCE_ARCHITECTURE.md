@@ -61,14 +61,25 @@ Existing corpus files do not contain trustworthy historical publication dates. I
 
 Run `npm run db:migrate`, then `npm run db:initialize`. Initialization validates and imports only the bounded five-document corpus and is idempotent.
 
+The local PostgreSQL data directory `bcrp_knowledge_dev/` is ignored. This keeps database-owned files out of source control. Production builds use Next.js's Webpack builder because Turbopack's dynamic filesystem tracing attempts to traverse PostgreSQL-owned storage when the data directory is located inside the repository and fails on its intentionally restricted permissions.
+
 ## Search consistency
 
 Search remains the proven in-memory lexical adapter. It reads the same current immutable version as the reader and derives authorized retrieval units before ranking. No draft or review table is queried. Persisting retrieval units or introducing PostgreSQL full-text search is deferred until scale demonstrates a need; if added, the unit set must be rebuilt transactionally before advancing the current pointer.
 
 ## Deferred work
 
-- Discord identities and external identity mapping
 - General corpus migration and trustworthy historical publication dates
 - Concurrent-edit conflict UI or realtime collaboration
 - PostgreSQL full-text search
 - Production abuse controls such as distributed rate limiting
+
+## Discord identity sessions
+
+`actors` supplies stable internal actor UUIDs. `actor_external_identities` maps an immutable Discord user ID to that actor without treating mutable usernames or display names as identity. `authorization_sessions` stores a hash of the browser token, the resolved named authorization identity, guild membership, the role-ID snapshot, and a 24-hour expiry.
+
+Discord is consulted when a session is established. Expired sessions fail closed to Public and require a new Discord login, which rechecks guild membership and current role IDs. Leaving the guild or losing a mapped role therefore removes privilege no later than session expiry; adding a role takes effect on the next login. Discord failure during login creates no session. Discord/database failure while resolving an existing session produces Public behavior, while public reader/search remain available.
+
+Discord provides claims only. Named visibility and capability policy remain application-owned. Role display names are never authorization inputs.
+
+Before production deployment, move PostgreSQL's physical data directory outside the application repository tree. The current location is a local-development convenience, not an acceptable production layout.

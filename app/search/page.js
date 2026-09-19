@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { DevIdentitySwitcher } from "../../components/DevIdentitySwitcher.js";
+import { AuthControls } from "../../components/AuthControls.js";
 import { CAPABILITIES, hasCapability } from "../../lib/capability-policy.js";
-import { getDevelopmentIdentity } from "../../lib/dev-identity.js";
+import { getRequestAuthorization } from "../../lib/request-authorization.js";
 import { searchKnowledge } from "../../lib/search.js";
 
 export const dynamic = "force-dynamic";
@@ -14,7 +15,8 @@ export const metadata = {
 export default async function SearchPage({ searchParams }) {
   const params = await searchParams;
   const query = typeof params.q === "string" ? params.q.trim() : "";
-  const identity = await getDevelopmentIdentity();
+  const authorization = await getRequestAuthorization();
+  const identity = authorization.identity;
   const results = query ? await searchKnowledge(query, identity) : [];
   const returnTo = query ? `/search?q=${encodeURIComponent(query)}` : "/search";
 
@@ -28,6 +30,7 @@ export default async function SearchPage({ searchParams }) {
       </nav>
 
       <DevIdentitySwitcher identity={identity} returnTo={returnTo} />
+      <AuthControls authorization={authorization} />
 
       <section className="search-surface">
         <p className="eyebrow">Authorized lexical search</p>
