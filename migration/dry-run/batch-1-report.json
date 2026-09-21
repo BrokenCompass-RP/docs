@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-09-19T23:44:34.525Z",
+  "documents": [
+    {
+      "title": "BCRP CSI Evidence Photo Deployment",
+      "slug": "bcrp-csi-evidence-photo-deployment",
+      "documentId": "2be4fb58-b955-5343-8b36-2161107d1e9d",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 11,
+      "sourcePath": "content/Development/BCRP_PHOTO_DEPLOYMENT.md",
+      "sourceSha256": "e3de9378335a206a78fef228927120c5d98db54483f2b03d647d91f515aba32b",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "BCRP HUD engineering backlog",
+      "slug": "bcrp-hud-engineering-backlog",
+      "documentId": "515a11cb-24be-5ecb-9be6-b1c8e9aaca54",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 8,
+      "sourcePath": "content/Development/bcrp-hud-backlog.md",
+      "sourceSha256": "978b4d391a17864c1bcd6d45ae813232107af345aba6a5e8a29a7b736f72fc6a",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "BCRP HUD Lua-to-NUI data contract",
+      "slug": "bcrp-hud-lua-to-nui-data-contract",
+      "documentId": "287b449b-f6d7-52b2-b2b6-9c328e6f519f",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 12,
+      "sourcePath": "content/Development/bcrp-hud-data-contract.md",
+      "sourceSha256": "5d9715d4fe997c5027ae5a911e207a7500d7380aef59438e1433d87645239322",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "BCRP HUD Phase 1 validation checklist",
+      "slug": "bcrp-hud-phase-1-validation-checklist",
+      "documentId": "5fc20e3e-0d8a-58f0-98d1-579cea6ec456",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 9,
+      "sourcePath": "content/Development/bcrp-hud-phase-1-validation.md",
+      "sourceSha256": "3940d26f830d7e78fa0919d34bb5ee7dc03b664ac41bd482d72df246233379ee",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "BCRP HUD developer resource map",
+      "slug": "bcrp-hud-developer-resource-map",
+      "documentId": "8e5a6271-ff04-5d55-a4af-188d329b89a7",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 9,
+      "sourcePath": "content/Development/bcrp-hud-resource-map.md",
+      "sourceSha256": "550769a5b251242ba57f1d92ce0b71eaeb0a0ca78740af59ca283ff8d1a9f0f7",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "BCRP HUD/UI redundancy audit",
+      "slug": "bcrp-hud-ui-redundancy-audit",
+      "documentId": "1847f888-be95-5148-8115-0bdf86203e8f",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 19,
+      "sourcePath": "content/Development/bcrp-hud-ui-audit.md",
+      "sourceSha256": "cbe500e58ed20f8089874e06b24d0f4b10186e7df95e4d888cbde15e61df847e",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    },
+    {
+      "title": "Broken Compass RP — Vehicle Lifecycle & Impound Architecture Review",
+      "slug": "broken-compass-rp-vehicle-lifecycle-and-impound-architecture-review",
+      "documentId": "2f609ee5-2916-5420-898a-1ae1ea35030a",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sectionCount": 12,
+      "sourcePath": "content/Development/vehicle-lifecycle-impound-architecture-review-2026-08-01.md",
+      "sourceSha256": "7244b86478b75613e56234e2e96ca20eb78b2197b7130942d79f32db77814a9f",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "omitted": [],
+      "deferred": [],
+      "transformation": "Added canonical frontmatter only; source body text retained after line-ending normalization."
+    }
+  ]
+}

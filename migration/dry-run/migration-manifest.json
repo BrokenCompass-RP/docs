@@ -1,0 +1,1325 @@
+{
+  "generatedAt": "2026-09-19T23:44:34.525Z",
+  "sourceRoot": "content",
+  "protectedSlugs": [
+    "architecture-guide",
+    "building-manager",
+    "community-rules",
+    "getting-around",
+    "mechanic-job",
+    "phone-directory"
+  ],
+  "entries": [
+    {
+      "sourcePath": "content/architecture-guide.md",
+      "sourceSha256": "ff50e15098684a01f836adfab4114e0d5d33ca0199758e86ca0665ffc0039d3a",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "BCRP Architecture Guide",
+      "proposedSlug": "bcrp-architecture-guide",
+      "proposedDocumentId": "9734be92-77fc-5ef4-a05f-04e321e10841",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": "existing-architecture",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/building-manager.md",
+      "sourceSha256": "2ef3614627c8cfab2b06f5f1b7f82016e62626eee2b88ee6bd7190a5a147095d",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP Building Manager guide",
+      "proposedSlug": "broken-compass-rp-building-manager-guide",
+      "proposedDocumentId": "adbd2947-c2b7-53a4-8975-a6ee2446a4f4",
+      "proposedBrowsePath": [
+        "systems-features"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": "existing-building-manager",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/Civilian Activities/overview.mdx",
+      "sourceSha256": "fcd31385ca04a32d3503dbd779ab7ebd9dc8ff1ea58071f301a73df8280944b0",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Civilian Activities - Overview",
+      "proposedSlug": "civilian-activities-overview",
+      "proposedDocumentId": "daa253da-503a-5ce9-88f6-c080bf768865",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": "overview-slug",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": true,
+      "sourceImageCount": 4,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 4 embedded images; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/community-rules.md",
+      "sourceSha256": "4ee701b65a1d3679e8803314796a95a78646924280f20157f17c1c107203b370",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Community Rules",
+      "proposedSlug": "community-rules",
+      "proposedDocumentId": "53488b46-134f-55ef-bb18-a3cb29832fab",
+      "proposedBrowsePath": [
+        "community"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": "community-rules",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/Community/Community Creator Guide - BCRP.docx",
+      "sourceSha256": "8451692dce213363327fbf311a218199c3a245335d20477c30a5aa710f8aa023",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Community Creator Guide - BCRP",
+      "proposedSlug": "community-creator-guide-bcrp",
+      "proposedDocumentId": "42121ce9-1765-5a5d-ac4e-67d7cb744d22",
+      "proposedBrowsePath": [
+        "community"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Contains leftover editorial/reviewer prose requiring a preserve-versus-publish decision."
+      ]
+    },
+    {
+      "sourcePath": "content/Community/rules.mdx",
+      "sourceSha256": "55888a98abb78307d6a97b7f8a865ece6512bf76fe72b12dbd371b6a48f01c12",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Rules",
+      "proposedSlug": "rules",
+      "proposedDocumentId": "f8e25fc8-2cef-5084-abfb-5b0ea3e25ab3",
+      "proposedBrowsePath": [
+        "community"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "community-rules",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Criminal Activities/overview.mdx",
+      "sourceSha256": "582f527feeaa34aa18505c2b9e187eb80fdccad230477eaeee8672a9bca69ee4",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Criminal Activities - Overview",
+      "proposedSlug": "criminal-activities-overview",
+      "proposedDocumentId": "d3fe107d-43da-5292-a2a3-c6b4815eaadb",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": "overview-slug",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": true,
+      "sourceImageCount": 1,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 1 embedded image; visual migration deferred.",
+        "Source explicitly identifies itself as incomplete.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Criminal Activities/store-robberies.mdx",
+      "sourceSha256": "550a7cf2889c3e5b13adab5796db69e3ae50d442fe54788083889aef7bc7170c",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Store Robberies",
+      "proposedSlug": "store-robberies",
+      "proposedDocumentId": "2fc9d8d4-d494-5830-b107-696e6cb95a5a",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Criminal Activities/The Black Market Dealer.docx",
+      "sourceSha256": "442b1baa5202752ccee2a45197e69d1bfa853c227b4f71226568367cc9b671b8",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "The Black Market Dealer",
+      "proposedSlug": "the-black-market-dealer",
+      "proposedDocumentId": "9f61e51c-9699-5676-bc8f-3a4a8da85c8b",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Criminal Activities/The Fence.docx",
+      "sourceSha256": "3cc792993057a44dff4a7e6998712cb3dec7f58e28b64e44b54e69ff6a68e36f",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "The Fence",
+      "proposedSlug": "the-fence",
+      "proposedDocumentId": "e1b5ad5c-6784-512a-847f-4b1487fb25ac",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/DOJ/DOJ SOPS.docx",
+      "sourceSha256": "ade0343fbde602b72efa182ef8be1225a06c48cd3faaf5ebca607c6af45842b3",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "DOJ SOPS",
+      "proposedSlug": "doj-sops",
+      "proposedDocumentId": "510bac7e-95de-576c-a7b9-f890068bbd42",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Reliable text extraction has not been established; ordinary Word text inspection returned only eight characters.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/Fire/BCRP-Fire-SOP.docx",
+      "sourceSha256": "7054dee9994964b0ac67fd44f7365c521674177c8446a4073cd51e2cc567245a",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "BCRP-Fire-SOP",
+      "proposedSlug": "bcrp-fire-sop",
+      "proposedDocumentId": "a4147c7c-249e-53cb-9f72-c62f2c1dd2e4",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 2,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 2 embedded images; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/Fire/Fire Basics Guide BCRP.docx",
+      "sourceSha256": "177bdf95e911995f0cd2929453c7935b0d5cc0d2325c8fc7cce7d3c20c4d8dbb",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Fire Basics Guide BCRP",
+      "proposedSlug": "fire-basics-guide-bcrp",
+      "proposedDocumentId": "190ea43f-4c5c-539e-87b4-d2c29ac901d7",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 14,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 14 embedded images; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/Police/BCRP-Police-SOP.docx",
+      "sourceSha256": "026ec75f2acd425aeb394319d4eb0428978b3ac272291f465dd3bf4c963725d4",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "BCRP-Police-SOP",
+      "proposedSlug": "bcrp-police-sop",
+      "proposedDocumentId": "d5ddd5b4-60eb-5a6e-bec0-581042fa608d",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 1,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 1 embedded image; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/Police/Police Basics Guide BCRP.docx",
+      "sourceSha256": "d8439396bfdbdb96e92a3f57f3d887224fbe9c6a26870075eec691387db4dc7f",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Police Basics Guide BCRP",
+      "proposedSlug": "police-basics-guide-bcrp",
+      "proposedDocumentId": "2ff135a4-3ede-59df-b307-7dfb83145d98",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 17,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 17 embedded images; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Departments/Police/Prison Guide BCRP.docx",
+      "sourceSha256": "68f4d93606482e06130641477231079d3d916a9f9b8f452cfe7e9db6b49fb408",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Prison Guide BCRP",
+      "proposedSlug": "prison-guide-bcrp",
+      "proposedDocumentId": "afab9545-a456-5550-bfcf-5dc3582af762",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 9,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 9 embedded images; visual migration deferred.",
+        "Contains an unresolved image placeholder in source text.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Development/6-30-26 Broken Compass RP – QA Testing Coverage Report.docx",
+      "sourceSha256": "6b0b99e0f990205ed65b987e7433c8c3b23ce572f65aaa352b629cbdc1820c55",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "6-30-26 Broken Compass RP – QA Testing Coverage Report",
+      "proposedSlug": "6-30-26-broken-compass-rp-qa-testing-coverage-report",
+      "proposedDocumentId": "3ed29c19-4f65-528f-8d76-f2d5232b6baf",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "qa-coverage",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/ARCHITECTURE.md",
+      "sourceSha256": "0d9e4579f04d0b658ac749c50915735734be332b65dc3a612f31b02109f8f107",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP — BCRP Architecture Guide",
+      "proposedSlug": "broken-compass-rp-bcrp-architecture-guide",
+      "proposedDocumentId": "0a1bfd37-655a-5b2c-ab09-abf04214baa8",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "existing-architecture",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/BCRP - Dev 10 Day Roadmap.docx",
+      "sourceSha256": "f57244d668d241100dc34a0a3fc9d0555755b5aa25c92b7143d5a36967a05d0a",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "BCRP - Dev 10 Day Roadmap",
+      "proposedSlug": "bcrp-dev-10-day-roadmap",
+      "proposedDocumentId": "a5dd9b8b-d5e9-5907-b627-73c4a9935bf9",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/BCRP - Dev Onboarding.docx",
+      "sourceSha256": "57ea5425d7426f8b4210dfe2f8bff352d38609d53f58de7a35d9034b57233a59",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "BCRP - Dev Onboarding",
+      "proposedSlug": "bcrp-dev-onboarding",
+      "proposedDocumentId": "0feed499-f413-5541-aa39-8c01e6ce564a",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/BCRP Icon Style Guide and Prompting in a Pinch.docx",
+      "sourceSha256": "e94131cc4347a8500a8d0a5c3fb70b8ece01a91de405bd9c2d42554b44b50809",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP Icon Style Guide and Prompting in a Pinch",
+      "proposedSlug": "bcrp-icon-style-guide-and-prompting-in-a-pinch",
+      "proposedDocumentId": "c0160b6b-a707-5f7e-afac-14474378dd0a",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "administrator",
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/BCRP Medical Department Design Notes.pdf",
+      "sourceSha256": "9f513eafe5e8b7f86142db5438955ec103b153d18c9ac1ba8e3c866c1de465f4",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "BCRP Medical Department Design Notes",
+      "proposedSlug": "bcrp-medical-department-design-notes",
+      "proposedDocumentId": "be6b8b1d-af32-55af-ae5f-35b1f452e012",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "pdf-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Generic PDF attachment preservation is not implemented."
+      ]
+    },
+    {
+      "sourcePath": "content/Development/BCRP_PHOTO_DEPLOYMENT.md",
+      "sourceSha256": "e3de9378335a206a78fef228927120c5d98db54483f2b03d647d91f515aba32b",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP CSI Evidence Photo Deployment",
+      "proposedSlug": "bcrp-csi-evidence-photo-deployment",
+      "proposedDocumentId": "2be4fb58-b955-5343-8b36-2161107d1e9d",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp_qa_testing_checklist.csv",
+      "sourceSha256": "f164701f928562870ebe12b48826a13330401bb0c456a29eb3f9c9dad46c8106",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "bcrp_qa_testing_checklist",
+      "proposedSlug": "bcrp-qa-testing-checklist",
+      "proposedDocumentId": "c8601e02-397d-5206-b194-60fc9ed4eada",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "csv-preservation-decision-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Living tabular record is not safely represented as an editable canonical Markdown document."
+      ]
+    },
+    {
+      "sourcePath": "content/Development/bcrp_testing_coverage_report.md",
+      "sourceSha256": "bd33a279db42f476db335b24f3d5bd9549da25f994a0f50e9f38f13c6ae5dd9c",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP QA Testing Coverage Report",
+      "proposedSlug": "broken-compass-rp-qa-testing-coverage-report",
+      "proposedDocumentId": "91c4e9ba-d619-58c6-ad49-a6ac075abbef",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "qa-coverage",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/BCRP-Evidence.docx",
+      "sourceSha256": "faaf8b581fa631f6e43b3c43ad13f676b8841887bcc6d264f7acef1d1ced41b1",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP-Evidence",
+      "proposedSlug": "bcrp-evidence",
+      "proposedDocumentId": "14fd7648-ec87-5d27-bebb-104f592d47be",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp-hud-backlog.md",
+      "sourceSha256": "978b4d391a17864c1bcd6d45ae813232107af345aba6a5e8a29a7b736f72fc6a",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP HUD engineering backlog",
+      "proposedSlug": "bcrp-hud-engineering-backlog",
+      "proposedDocumentId": "515a11cb-24be-5ecb-9be6-b1c8e9aaca54",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp-hud-data-contract.md",
+      "sourceSha256": "5d9715d4fe997c5027ae5a911e207a7500d7380aef59438e1433d87645239322",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP HUD Lua-to-NUI data contract",
+      "proposedSlug": "bcrp-hud-lua-to-nui-data-contract",
+      "proposedDocumentId": "287b449b-f6d7-52b2-b2b6-9c328e6f519f",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp-hud-phase-1-validation.md",
+      "sourceSha256": "3940d26f830d7e78fa0919d34bb5ee7dc03b664ac41bd482d72df246233379ee",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP HUD Phase 1 validation checklist",
+      "proposedSlug": "bcrp-hud-phase-1-validation-checklist",
+      "proposedDocumentId": "5fc20e3e-0d8a-58f0-98d1-579cea6ec456",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp-hud-resource-map.md",
+      "sourceSha256": "550769a5b251242ba57f1d92ce0b71eaeb0a0ca78740af59ca283ff8d1a9f0f7",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP HUD developer resource map",
+      "proposedSlug": "bcrp-hud-developer-resource-map",
+      "proposedDocumentId": "8e5a6271-ff04-5d55-a4af-188d329b89a7",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/bcrp-hud-ui-audit.md",
+      "sourceSha256": "cbe500e58ed20f8089874e06b24d0f4b10186e7df95e4d888cbde15e61df847e",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "BCRP HUD/UI redundancy audit",
+      "proposedSlug": "bcrp-hud-ui-redundancy-audit",
+      "proposedDocumentId": "1847f888-be95-5148-8115-0bdf86203e8f",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/Broken Compass RP Git Branch Map.docx",
+      "sourceSha256": "1520e5dc625458ddc4b1de52b17936114f110ef29f097cac669e9cc31851beda",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP Git Branch Map",
+      "proposedSlug": "broken-compass-rp-git-branch-map",
+      "proposedDocumentId": "79c71e9f-74a7-5cdf-a8ef-8ea335809683",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/CODEBASE_HEALTH_PERFORMANCE_AUDIT.md",
+      "sourceSha256": "125343a1855a09893de8bd2435cfe84934a04d17d4f97b9c789f817797b56db6",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP — server codebase health/performance audit",
+      "proposedSlug": "broken-compass-rp-server-codebase-health-performance-audit",
+      "proposedDocumentId": "c26dc5c8-fb6f-5939-8f37-4011acac650f",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "existing-architecture",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/coding-standards.md",
+      "sourceSha256": "38756b9b5517327c9aa88be8875ad5364f8585b79f24efb6a6001f4361c5b63b",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP Coding Standards",
+      "proposedSlug": "broken-compass-rp-coding-standards",
+      "proposedDocumentId": "b43402be-b681-504a-9e36-175dbb31d9be",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/cody-instructions.md",
+      "sourceSha256": "b139de2ed4c4b0faec5a204b1418707d596c9b52548ccd3e81ef7c6ae72fcea2",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Cody Instructions for Broken Compass RP",
+      "proposedSlug": "cody-instructions-for-broken-compass-rp",
+      "proposedDocumentId": "a1e97c3e-51af-5dfb-8596-3e798c3c677d",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/Combat Balance Testing - BCRP.docx",
+      "sourceSha256": "c6d49035c961e09f2f04f63b064399472658cfadd51460f18b2a0f579b3339b5",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Combat Balance Testing - BCRP",
+      "proposedSlug": "combat-balance-testing-bcrp",
+      "proposedDocumentId": "5f3de270-4fd1-5b85-9556-1b792cc1ee20",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Human review removed this source from the proposed migration queue; preserve it in the corpus without creating a canonical document."
+      ]
+    },
+    {
+      "sourcePath": "content/Development/COMMANDS_AND_KEYBINDS.md",
+      "sourceSha256": "6e5b9513ec007c23ffa9589b03b3b356edbb2b66efcd0c75b76d7231407a44cd",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP commands and keybinds",
+      "proposedSlug": "broken-compass-rp-commands-and-keybinds",
+      "proposedDocumentId": "3c1cd1f4-a717-5edb-b5c2-744f46032962",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "commands-and-controls",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [
+        "Controls/commands.md",
+        "Controls/controls.md"
+      ],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/commands-and-hotkeys.md",
+      "sourceSha256": "0bbc4ca3c35cc7ecb5d953202ac8b1b9cd5579191f304b7a16b706c4e1bfa431",
+      "proposedDisposition": "HISTORICAL",
+      "proposedTitle": "Historical Commands and Default Hotkeys (2026-07-30)",
+      "proposedSlug": "historical-commands-and-default-hotkeys-2026-07-30",
+      "proposedDocumentId": "268ab966-abcc-5d4b-8ee9-e14f15be1fde",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": "commands-and-controls",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [
+        "Controls/commands.md",
+        "Controls/controls.md",
+        "Controls/undocumented-controls.md"
+      ],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/Creative Vision & Experience Guide.docx",
+      "sourceSha256": "97beabe0e68f06d5f9350c016bd881042564aba7ad7be697c0c2ce253112a3ef",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "Creative Vision & Experience Guide",
+      "proposedSlug": "creative-vision-and-experience-guide",
+      "proposedDocumentId": "a955321a-d5d4-5848-9a4c-a9275f6b473a",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/development-workflow.md",
+      "sourceSha256": "97e652c613236d068a382b1f3e69cfc2ff24265b99cc6f7de0416485fb489e53",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Broken Compass RP Development Workflow",
+      "proposedSlug": "broken-compass-rp-development-workflow",
+      "proposedDocumentId": "98eeb888-60db-525e-a8c1-e7237ee2c47a",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "development-process",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/reflective-codewalker-commands-2026-07-31.txt",
+      "sourceSha256": "0c8be27238f90c5b276578f81c9ea194ab16e474b025a55149d3780804d8d7a0",
+      "proposedDisposition": "EXCLUDE",
+      "proposedTitle": "reflective-codewalker-commands-2026-07-31",
+      "proposedSlug": "reflective-codewalker-commands-2026-07-31",
+      "proposedDocumentId": "3dd01bf2-ecb0-5926-9c2f-7773244f65ad",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "plain-text-review-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [
+        "$h.Value",
+        "$lb,$vb",
+        "$entry"
+      ],
+      "notes": [
+        "Raw machine-specific session transcript; exclusion was recommended during discovery."
+      ]
+    },
+    {
+      "sourcePath": "content/Development/server-architecture.md",
+      "sourceSha256": "27ba882f444249be2e54494085fa9032389351d3f0df98a33ac3edc17bec4402",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "BrokenCompassRP Architecture",
+      "proposedSlug": "brokencompassrp-architecture",
+      "proposedDocumentId": "90654e1a-852a-5a14-9466-00679cc01d73",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "existing-architecture",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Development/vehicle-lifecycle-impound-architecture-review-2026-08-01.md",
+      "sourceSha256": "7244b86478b75613e56234e2e96ca20eb78b2197b7130942d79f32db77814a9f",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "Broken Compass RP — Vehicle Lifecycle & Impound Architecture Review",
+      "proposedSlug": "broken-compass-rp-vehicle-lifecycle-and-impound-architecture-review",
+      "proposedDocumentId": "2f609ee5-2916-5420-898a-1ae1ea35030a",
+      "proposedBrowsePath": [
+        "development"
+      ],
+      "proposedVisibility": "developer",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/common-commands.mdx",
+      "sourceSha256": "4f970727a77566b6a847ba17da2384fa9f68fe219756e920f309bcfd3bd7e4ae",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Commands",
+      "proposedSlug": "commands",
+      "proposedDocumentId": "fd1ae1e3-bca6-52ae-90ba-23332c54c030",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "commands-and-controls",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/controls.mdx",
+      "sourceSha256": "a383bd09c3658495016d56ff2f55e0baa90292692d0c2fb4261abbe4a0a8f9f2",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Controls",
+      "proposedSlug": "controls",
+      "proposedDocumentId": "4a12010c-3f1b-5079-bd0c-f0bd547d577e",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "commands-and-controls",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/getting-around.mdx",
+      "sourceSha256": "44b0160512fb42440ec776ff502bba728381fe5557fe836de4ae91e684896068",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Getting Around",
+      "proposedSlug": "getting-around",
+      "proposedDocumentId": "e6146bc5-3471-589a-b3e3-f5fe61c5e2ae",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "getting-around",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/bus-job.mdx",
+      "sourceSha256": "c1621afaf50a274253f8282aa3e4883a221d2d2bc53c143ae47ca991602a5fcb",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Bus Job",
+      "proposedSlug": "bus-job",
+      "proposedDocumentId": "7e20be55-a137-5bbd-9186-73a1f373077d",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/ems-job.mdx",
+      "sourceSha256": "e2413e5ce96ff90a8671818a63ad689026484f3336df8ef2d8c911365cf84ee3",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "EMS Job",
+      "proposedSlug": "ems-job",
+      "proposedDocumentId": "19b85f80-1c87-50ff-beb7-10f451d9e36d",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/garbage-worker.mdx",
+      "sourceSha256": "dbbc6c6bcf7853f04fe6f949e479dca69a486cad58314bb0ad99fde2c2224726",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Garbage Worker",
+      "proposedSlug": "garbage-worker",
+      "proposedDocumentId": "d8acec74-858d-548d-8421-3e4ea2dd0cef",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/Mechanic Guide v1 BCRP.docx",
+      "sourceSha256": "b9c9cb1a2b7e5406d70610fac7a6b6c6830c569fa63116f27d9b13e25e0f1690",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Mechanic Guide v1 BCRP",
+      "proposedSlug": "mechanic-guide-v1-bcrp",
+      "proposedDocumentId": "c1e9827b-2449-5cc0-868c-9e38fd05ec52",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "mechanic-job",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 8,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 8 embedded images; visual migration deferred."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/mechanic-job.mdx",
+      "sourceSha256": "99627ba46ac30df848059b96c64c058667f837c163dbffe7f2510a9958d8749e",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Mechanic Job",
+      "proposedSlug": "mechanic-job",
+      "proposedDocumentId": "5c54aaa4-3d8c-576f-bc82-87ea1411ae57",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "mechanic-job",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": true,
+      "sourceImageCount": 8,
+      "knownMissingReferences": [
+        "/basics/overview#taxi-service",
+        "/basics/overview#third-eye",
+        "/basics/overview#invoicing"
+      ],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically.",
+        "Source contains 8 embedded images; visual migration deferred.",
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/overview.mdx",
+      "sourceSha256": "0b3740b85bdf419dc9a42ca98bb61ee97cb776710d1d1871600d6222f7bd53a6",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Jobs - Overview",
+      "proposedSlug": "jobs-overview",
+      "proposedDocumentId": "cc32a054-639d-5eaf-ad49-9bafaa55cbf5",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "overview-slug",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/police-job.mdx",
+      "sourceSha256": "901b37836a482f6cd5c640e59c579dde45b61d53d4af85fbe9329f2bf0bdba02",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Police Job",
+      "proposedSlug": "police-job",
+      "proposedDocumentId": "716010b1-4282-5569-9ae3-4e684f40a158",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/recycler.mdx",
+      "sourceSha256": "55d0a9617538b2f552b835e3db663752713aa714288f5701a058581b474402fa",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Recycler",
+      "proposedSlug": "recycler",
+      "proposedDocumentId": "91eae199-da0d-54ad-a638-85b887fb7ef0",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/taxi-job.mdx",
+      "sourceSha256": "60339115cca78cc1cd6385ecab1a19f5dd99ff6846070d8c829ac2f7cb3dfd68",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Taxi Job",
+      "proposedSlug": "taxi-job",
+      "proposedDocumentId": "f09e5046-0313-52c1-98f1-442a788f0024",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/tow-job.mdx",
+      "sourceSha256": "9433158cea806aed46d41c53e650753444000bfce2ae5296f2ed6981208ab539",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Tow Job",
+      "proposedSlug": "tow-job",
+      "proposedDocumentId": "fc364df4-1268-58d6-a9bd-631dd4eef3cd",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "towing-guide",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": true,
+      "sourceImageCount": 5,
+      "knownMissingReferences": [
+        "/basics/overview#taxi-service",
+        "/basics/overview#radial-menu"
+      ],
+      "notes": [
+        "Source contains 5 embedded images; visual migration deferred."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Jobs/trucker.mdx",
+      "sourceSha256": "24f90785501306a89ddcc33c4d0dcd37d6736443a98ce6c3c1e99823c032f396",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Trucker",
+      "proposedSlug": "trucker",
+      "proposedDocumentId": "7e17cc76-0e53-5f5a-8475-73856b0c9d6b",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source explicitly identifies itself as incomplete."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/known-issues.mdx",
+      "sourceSha256": "c4789baad42e5353d649ca3c4ddfe9b0b37ac22d076a9c387b2a71b1129893ae",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "Known Issues",
+      "proposedSlug": "known-issues",
+      "proposedDocumentId": "41829c26-2801-5792-9720-505f2c3bc35b",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": null,
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/overview.mdx",
+      "sourceSha256": "6e20ad02532bccd502915c9e69e90d84a651b988449d1ccf49d6927a4eefbb11",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Basics - Overview",
+      "proposedSlug": "basics-overview",
+      "proposedDocumentId": "a861c71e-e35f-5aad-9e02-f468ae5eef03",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "overview-slug",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/Player Control & Command Guide.docx",
+      "sourceSha256": "1a97c173b491cf2d51985d8425abad538dadf19823027f63a83f5838d1fd3667",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Player Control & Command Guide",
+      "proposedSlug": "player-control-and-command-guide",
+      "proposedDocumentId": "a0780d91-f7a5-5b56-850f-b3feeeb9388b",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "commands-and-controls",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/Properties/Bay City Blue Apts Guide BCRP.docx",
+      "sourceSha256": "c6ce763d54d06a2fc81aa21dee6451d6c7b899106b1af991007ce4d96a8f1568",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Bay City Blue Apts Guide BCRP",
+      "proposedSlug": "bay-city-blue-apts-guide-bcrp",
+      "proposedDocumentId": "3afa51c7-8d47-5fa0-978d-095ff1cf2b9e",
+      "proposedBrowsePath": null,
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 7,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 7 embedded images; visual migration deferred.",
+        "No approved current browse destination preserves the source hierarchy."
+      ]
+    },
+    {
+      "sourcePath": "content/Getting Started/Random Joe.docx",
+      "sourceSha256": "9ffd90e1791964f96edb2132456793aad54316f3b84258fc18c6409684aa5295",
+      "proposedDisposition": "IMPORT",
+      "proposedTitle": "Random Joe",
+      "proposedSlug": "random-joe",
+      "proposedDocumentId": "08410655-0c94-5c43-92e5-5ac91b419d70",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Getting Started/Towing Job Guide BCRP.docx",
+      "sourceSha256": "021ef277483ed4634b10b0923f03dd9e0115785cfb62a3ac31a42efa36ef7372",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Towing Job Guide BCRP",
+      "proposedSlug": "towing-job-guide-bcrp",
+      "proposedDocumentId": "217ca311-129b-5767-afb3-a18e69eb2b14",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "towing-guide",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": true,
+      "sourceImageCount": 12,
+      "knownMissingReferences": [],
+      "notes": [
+        "Source contains 12 embedded images; visual migration deferred."
+      ]
+    },
+    {
+      "sourcePath": "content/getting-around.md",
+      "sourceSha256": "aecdbb33ce40c409a2446792199d476204e00a364705e0fd179350d3a3c09ae1",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Getting Around",
+      "proposedSlug": "getting-around",
+      "proposedDocumentId": "96de9f2e-6d0b-52e5-a48f-4e92c72e9293",
+      "proposedBrowsePath": [
+        "getting-started"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": "getting-around",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/mechanic-job.md",
+      "sourceSha256": "5c09b60d77ea1fea5f1328824d2ce9a152452af068c8ecf5e284b10edc1c2981",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Mechanic Job",
+      "proposedSlug": "mechanic-job",
+      "proposedDocumentId": "81dcac68-fa0e-5c3e-a64b-a6556d7dd789",
+      "proposedBrowsePath": [
+        "getting-started",
+        "jobs"
+      ],
+      "proposedVisibility": "public",
+      "collisionGroup": "mechanic-job",
+      "extractionMethod": "native-markdown-canonical-envelope-v1",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": [
+        "Matches a protected PostgreSQL slug; do not create or overwrite automatically."
+      ]
+    },
+    {
+      "sourcePath": "content/Staff/Broken Compass Admin Guide.docx",
+      "sourceSha256": "d2bb6c23ee82bc53cf10afd9a993f9bd8793c195215e1a5b04a5b98a7ece443e",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Broken Compass Admin Guide",
+      "proposedSlug": "broken-compass-admin-guide",
+      "proposedDocumentId": "4c71dca6-d758-5543-8b2c-f9b17ea2a303",
+      "proposedBrowsePath": [
+        "staff"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Staff/Building Manager Guide BCRP.docx",
+      "sourceSha256": "d3d6927f120368a005764b3d7743fc2477881f592460a4bc97d10be8d3ec6f72",
+      "proposedDisposition": "RECONCILE",
+      "proposedTitle": "Building Manager Guide BCRP",
+      "proposedSlug": "building-manager-guide-bcrp",
+      "proposedDocumentId": "7c60df4c-c373-567f-9127-e3171b82864b",
+      "proposedBrowsePath": [
+        "staff"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": "existing-building-manager",
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    },
+    {
+      "sourcePath": "content/Staff/Guide to Handling Things.docx",
+      "sourceSha256": "acdcd689e935cedcca9de0a7912604973889d217dc657cc772a9f1d5afd03aed",
+      "proposedDisposition": "HOLD",
+      "proposedTitle": "Guide to Handling Things",
+      "proposedSlug": "guide-to-handling-things",
+      "proposedDocumentId": "16e6d092-153b-5283-8cd6-64ecfbbf670e",
+      "proposedBrowsePath": [
+        "staff"
+      ],
+      "proposedVisibility": null,
+      "collisionGroup": null,
+      "extractionMethod": "docx-wordprocessingml-text-extraction-pending",
+      "sourceContainsImages": false,
+      "sourceImageCount": 0,
+      "knownMissingReferences": [],
+      "notes": []
+    }
+  ]
+}

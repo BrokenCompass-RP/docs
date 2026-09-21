@@ -9,6 +9,8 @@ test("development simulator cookie is read only inside a development guard", asy
   assert.ok(developmentGuard >= 0);
   assert.ok(source.indexOf("cookieStore.get(DEV_IDENTITY_COOKIE)") > developmentGuard);
   assert.ok(simulatorRead >= 0);
+  assert.doesNotMatch(source, /if \(isVisibility\(simulated\)\) return/);
+  assert.match(source, /discordSession/);
   assert.match(source, /identity: "public"/);
 });
 

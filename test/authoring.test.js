@@ -68,3 +68,12 @@ test("projection preview uses existing cumulative authorization semantics", () =
     }
   }
 });
+
+test("reader uses neutral view terminology and structural section dividers", async () => {
+  const reader = await readFile(new URL("../app/docs/[slug]/page.js", import.meta.url), "utf8");
+  const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(reader, /Guide · \{projection\} view/);
+  assert.doesNotMatch(reader, /Canonical guide · \{projection\} projection/);
+  assert.match(styles, /\.document-section \+ \.document-section\s*\{[^}]*border-top:/s);
+  assert.doesNotMatch(styles, /\.document-section:first-child[^}]*border-top:/s);
+});

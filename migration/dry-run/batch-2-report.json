@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-09-20T19:09:17.7386513Z",
+  "status": "dry-run-only",
+  "databaseWrites": false,
+  "publicationsCreated": false,
+  "documents": [
+    {
+      "title": "BCRP Icon Style Guide and Prompting in a Pinch",
+      "slug": "bcrp-icon-style-guide-and-prompting-in-a-pinch",
+      "documentId": "c0160b6b-a707-5f7e-afac-14474378dd0a",
+      "description": "Visual style guidance and reusable prompting for Broken Compass inventory icons.",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "administrator",
+      "sourcePath": "content/Development/BCRP Icon Style Guide and Prompting in a Pinch.docx",
+      "sourceSha256": "e94131cc4347a8500a8d0a5c3fb70b8ece01a91de405bd9c2d42554b44b50809",
+      "importMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceHeadingCount": 12,
+      "canonicalHeadingCount": 12,
+      "canonicalSha256": "89603d345ed698fc68328443ae61bddf0f1ccca5edf8da7feaeade8ce641967f",
+      "omitted": [],
+      "deferred": [],
+      "sourceProseEditoriallyRewritten": false,
+      "provenance": {
+        "sourcePath": "content/Development/BCRP Icon Style Guide and Prompting in a Pinch.docx",
+        "sourceSha256": "e94131cc4347a8500a8d0a5c3fb70b8ece01a91de405bd9c2d42554b44b50809",
+        "importMethod": "docx-wordprocessingml-to-markdown-v1"
+      },
+      "limitations": "The three visual examples referenced by the source are not embedded and were not invented."
+    },
+    {
+      "title": "Creative Vision & Experience Guide",
+      "slug": "creative-vision-and-experience-guide",
+      "documentId": "a955321a-d5d4-5848-9a4c-a9275f6b473a",
+      "description": "Creative principles and experience direction for Broken Compass RP.",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sourcePath": "content/Development/Creative Vision & Experience Guide.docx",
+      "sourceSha256": "97beabe0e68f06d5f9350c016bd881042564aba7ad7be697c0c2ce253112a3ef",
+      "importMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceHeadingCount": 42,
+      "canonicalHeadingCount": 42,
+      "canonicalSha256": "dcac68d46c8ccad085833557ee383d6bfe857c9665cc590866d08c5dd46962a6",
+      "omitted": [],
+      "deferred": [],
+      "sourceProseEditoriallyRewritten": false,
+      "provenance": {
+        "sourcePath": "content/Development/Creative Vision & Experience Guide.docx",
+        "sourceSha256": "97beabe0e68f06d5f9350c016bd881042564aba7ad7be697c0c2ce253112a3ef",
+        "importMethod": "docx-wordprocessingml-to-markdown-v1"
+      },
+      "limitations": null
+    },
+    {
+      "title": "BCRP-Evidence",
+      "slug": "bcrp-evidence",
+      "documentId": "14fd7648-ec87-5d27-bebb-104f592d47be",
+      "description": "Development roadmap for the planned Broken Compass evidence and forensic ecosystem.",
+      "browsePath": [
+        "development"
+      ],
+      "visibility": "developer",
+      "sourcePath": "content/Development/BCRP-Evidence.docx",
+      "sourceSha256": "faaf8b581fa631f6e43b3c43ad13f676b8841887bcc6d264f7acef1d1ced41b1",
+      "importMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceHeadingCount": 51,
+      "canonicalHeadingCount": 51,
+      "canonicalSha256": "ecf41e9660d5462042b4a47c4e0240cd6a72897f7774869b3481f24bcce0ccbc",
+      "omitted": [],
+      "deferred": [],
+      "sourceProseEditoriallyRewritten": false,
+      "provenance": {
+        "sourcePath": "content/Development/BCRP-Evidence.docx",
+        "sourceSha256": "faaf8b581fa631f6e43b3c43ad13f676b8841887bcc6d264f7acef1d1ced41b1",
+        "importMethod": "docx-wordprocessingml-to-markdown-v1"
+      },
+      "limitations": "The approved description identifies this source as a development roadmap; the preserved source body was not rewritten."
+    },
+    {
+      "title": "Random Joe",
+      "slug": "random-joe",
+      "documentId": "08410655-0c94-5c43-92e5-5ac91b419d70",
+      "description": "Learn what to expect when you meet Random Joe and hear his rumors.",
+      "browsePath": [
+        "getting-started"
+      ],
+      "visibility": "public",
+      "sourcePath": "content/Getting Started/Random Joe.docx",
+      "sourceSha256": "9ffd90e1791964f96edb2132456793aad54316f3b84258fc18c6409684aa5295",
+      "importMethod": "docx-wordprocessingml-to-markdown-v1",
+      "sourceHeadingCount": 7,
+      "canonicalHeadingCount": 7,
+      "canonicalSha256": "3b69961f92acd4e6af2388b3d03c566d1cdf48e95d27bb7421f4be28a888b525",
+      "omitted": [],
+      "deferred": [],
+      "sourceProseEditoriallyRewritten": false,
+      "provenance": {
+        "sourcePath": "content/Getting Started/Random Joe.docx",
+        "sourceSha256": "9ffd90e1791964f96edb2132456793aad54316f3b84258fc18c6409684aa5295",
+        "importMethod": "docx-wordprocessingml-to-markdown-v1"
+      },
+      "limitations": null
+    },
+    {
+      "title": "Known Issues",
+      "slug": "known-issues",
+      "documentId": "41829c26-2801-5792-9720-505f2c3bc35b",
+      "description": "Known Issues and workarounds.",
+      "browsePath": [
+        "getting-started"
+      ],
+      "visibility": "public",
+      "sourcePath": "content/Getting Started/known-issues.mdx",
+      "sourceSha256": "c4789baad42e5353d649ca3c4ddfe9b0b37ac22d076a9c387b2a71b1129893ae",
+      "importMethod": "native-markdown-canonical-envelope-v1",
+      "sourceHeadingCount": 3,
+      "canonicalHeadingCount": 3,
+      "canonicalSha256": "1173f63cc83ae5ccd6a90cbf55328a9d1aae0ca64bd57495fa7fd7c773761658",
+      "omitted": [],
+      "deferred": [],
+      "sourceProseEditoriallyRewritten": false,
+      "provenance": {
+        "sourcePath": "content/Getting Started/known-issues.mdx",
+        "sourceSha256": "c4789baad42e5353d649ca3c4ddfe9b0b37ac22d076a9c387b2a71b1129893ae",
+        "importMethod": "native-markdown-canonical-envelope-v1"
+      },
+      "limitations": null
+    }
+  ]
+}

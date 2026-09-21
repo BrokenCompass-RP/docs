@@ -1,0 +1,25 @@
+[Unit]
+Description=Broken Compass Knowledge
+After=network-online.target postgresql.service
+Wants=network-online.target
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=bcrp_knowledge
+Group=bcrp_knowledge
+WorkingDirectory=/opt/bcrp-knowledge/current
+EnvironmentFile=/etc/bcrp-knowledge/production.env
+ExecStart=/usr/bin/node /opt/bcrp-knowledge/current/node_modules/next/dist/bin/next start -H 127.0.0.1 -p 3000
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=bcrp-knowledge
+
+[Install]
+WantedBy=multi-user.target

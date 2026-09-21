@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { DevIdentitySwitcher } from "../../components/DevIdentitySwitcher.js";
 import { AuthControls } from "../../components/AuthControls.js";
-import { CAPABILITIES, hasCapability } from "../../lib/capability-policy.js";
+import { ReaderUtilityFooter } from "../../components/ReaderUtilityFooter.js";
 import { getRequestAuthorization } from "../../lib/request-authorization.js";
 import { searchKnowledge } from "../../lib/search.js";
+import { resolveProjectionIdentity } from "../../lib/view-as-policy.js";
 
 export const dynamic = "force-dynamic";
 
@@ -17,20 +17,16 @@ export default async function SearchPage({ searchParams }) {
   const query = typeof params.q === "string" ? params.q.trim() : "";
   const authorization = await getRequestAuthorization();
   const identity = authorization.identity;
-  const results = query ? await searchKnowledge(query, identity) : [];
+  const projection = resolveProjectionIdentity(identity, typeof params.viewAs === "string" ? params.viewAs : identity);
+  const results = query ? await searchKnowledge(query, projection) : [];
   const returnTo = query ? `/search?q=${encodeURIComponent(query)}` : "/search";
 
   return (
-    <main className="shell">
+    <main className="shell" id="page-top">
       <nav className="topbar" aria-label="Breadcrumb">
-        <Link href="/">Broken Compass knowledge</Link>
-        <span aria-hidden="true">/</span>
-        <span>Search</span>
-        {hasCapability(identity, CAPABILITIES.MANAGE_DOCUMENTS) ? <Link className="nav-action" href="/manager">Document Manager</Link> : null}
+        <div className="topbar-breadcrumb"><Link href="/">Broken Compass knowledge</Link><span aria-hidden="true">/</span><span>Search</span></div>
+        <div className="topbar-actions"><AuthControls authorization={authorization} /></div>
       </nav>
-
-      <DevIdentitySwitcher identity={identity} returnTo={returnTo} />
-      <AuthControls authorization={authorization} />
 
       <section className="search-surface">
         <p className="eyebrow">Authorized lexical search</p>
@@ -66,6 +62,7 @@ export default async function SearchPage({ searchParams }) {
           ) : null}
         </div>
       </section>
+      <ReaderUtilityFooter pageLabel="Search" identity={identity} projection={projection} returnTo="/search" preserveQuery={query ? { q: query } : {}} />
     </main>
   );
 }

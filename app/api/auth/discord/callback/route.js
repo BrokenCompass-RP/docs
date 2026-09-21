@@ -4,9 +4,10 @@ import { createDiscordClient } from "../../../../../lib/discord-client.js";
 import { loadDiscordConfig, resolveDiscordAuthorization, SESSION_LIFETIME_SECONDS } from "../../../../../lib/discord-authorization.js";
 import { AUTH_SESSION_COOKIE } from "../../../../../lib/request-authorization.js";
 import { OAuthStageError, recordDevelopmentOAuthDiagnostic, withOAuthStage } from "../../../../../lib/oauth-diagnostics.js";
+import { applicationUrl } from "../../../../../lib/application-url.js";
 
 export async function GET(request) {
-  const failure = () => NextResponse.redirect(new URL("/?auth_error=discord_login_failed", request.url));
+  const failure = () => NextResponse.redirect(applicationUrl("/?auth_error=discord_login_failed", request.url));
   try {
     const attemptCookie = request.cookies.get("bcrp_oauth_attempt")?.value;
     if (!attemptCookie) throw new OAuthStageError("discord_oauth_state_pkce_validation_failed");
@@ -29,7 +30,7 @@ export async function GET(request) {
       roleIds: discord.roleIds, identity, lifetimeSeconds: SESSION_LIFETIME_SECONDS
     });
     try {
-      const response = NextResponse.redirect(new URL("/", request.url));
+      const response = NextResponse.redirect(applicationUrl("/", request.url));
       response.cookies.delete("bcrp_oauth_attempt");
       response.cookies.set(AUTH_SESSION_COOKIE, session.token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", path: "/", maxAge: SESSION_LIFETIME_SECONDS });
       return response;

@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import { parseCanonicalMarkdown } from "../lib/access-markdown.js";
-import { constructBrowse, findBrowseFolder } from "../lib/browse-model.js";
+import { constructBrowse, findBrowseDocumentPath, findBrowseFolder } from "../lib/browse-model.js";
 import { getDocumentDefinition } from "../lib/content-registry.js";
 import { hasCapability, CAPABILITIES } from "../lib/capability-policy.js";
 import { resolveProjectionIdentity } from "../lib/view-as-policy.js";
@@ -91,6 +91,17 @@ test("lower View As projection reduces browse without changing capabilities", as
   assert.equal(resolveProjectionIdentity("developer", "administrator"), "developer");
 });
 
+test("reader navigation can use the authorized browse tree without leaking restricted metadata", async () => {
+  const publicBrowse = await build("public");
+  assert.doesNotMatch(serialize(publicBrowse), /Development|Architecture|Administration|Developer systems|Administrator systems/);
+
+  const developerBrowse = await build("developer");
+  assert.deepEqual(findBrowseFolder(developerBrowse, ["development"]).documents.map((document) => document.slug), ["dev"]);
+
+  const administratorBrowse = await build("administrator");
+  assert.deepEqual(findBrowseFolder(administratorBrowse, ["development"]).documents.map((document) => document.slug), ["admin", "dev"]);
+});
+
 test("browse placement does not alter stable document identity", async () => {
   const before = getDocumentDefinition("mechanic-job");
   assert.equal(before.id, "2c21fa3e-2b55-48a2-953e-117e504f0ad2");
@@ -99,4 +110,12 @@ test("browse placement does not alter stable document identity", async () => {
   const migration = await readFile(new URL("../db/migrations/001_initial.sql", import.meta.url), "utf8");
   assert.match(migration, /document_id uuid NOT NULL REFERENCES documents/);
   assert.doesNotMatch(migration, /browsePath|browse_path/);
+});
+
+test("authorized document paths retain their full nested taxonomy ancestry", async () => {
+  const browse = await build("public");
+  const path = findBrowseDocumentPath(browse, "jobs");
+  assert.deepEqual(path.folders.map((folder) => folder.name), ["Getting Started", "Jobs"]);
+  assert.equal(path.document.title, "Finding a Job");
+  assert.equal(findBrowseDocumentPath(browse, "dev"), null);
 });

@@ -1,8 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { normalizeRichTextToMarkdown } from "../lib/paste-normalizer.js";
 import { VISIBILITIES } from "../lib/visibility-policy.js";
+import { ancestorFolderKeys, constructManagerTree } from "../lib/manager-tree.js";
+import { ReaderUtilityFooter } from "./ReaderUtilityFooter.js";
+import { AuthControls } from "./AuthControls.js";
 
 const LABELS = {
   public: "Public",
@@ -19,7 +22,7 @@ function freshSection(defaultVisibility) {
   };
 }
 
-export function DocumentManager({ identity, documents, selectedSlug, initialDocument, initialHasDraft, initialCurrentVersion, initialVersions, initialReviews, browseLocations }) {
+export function DocumentManager({ identity, authorization, projection, documents, selectedSlug, initialDocument, initialHasDraft, initialCurrentVersion, initialVersions, initialReviews, browseLocations }) {
   const [document, setDocument] = useState(initialDocument);
   const [hasDraft, setHasDraft] = useState(initialHasDraft);
   const [filter, setFilter] = useState("");
@@ -34,12 +37,59 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
   const [showResolved, setShowResolved] = useState(false);
   const [commentBodies, setCommentBodies] = useState({});
   const [showNewDocument, setShowNewDocument] = useState(false);
+  const selectedDocument = documents.find((item) => item.slug === selectedSlug);
+  const [expandedFolders, setExpandedFolders] = useState(() => new Set(ancestorFolderKeys(selectedDocument?.browsePath)));
   const [newDocument, setNewDocument] = useState({ title: "", description: "", browsePath: browseLocations[0]?.path.join("/") ?? "", defaultVisibility: "public" });
   const [imageForms, setImageForms] = useState({});
 
-  const visibleDocuments = useMemo(() => documents.filter((item) =>
-    item.title.toLowerCase().includes(filter.toLowerCase())
-  ), [documents, filter]);
+  const documentTree = useMemo(() => constructManagerTree(browseLocations.map(({ label, path }) => ({ name: label, segments: path })), documents, filter), [browseLocations, documents, filter]);
+
+  useEffect(() => {
+    const warnBeforeUnload = (event) => {
+      if (!dirty) return;
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warnBeforeUnload);
+    return () => window.removeEventListener("beforeunload", warnBeforeUnload);
+  }, [dirty]);
+
+  function confirmDiscard() {
+    return !dirty || window.confirm("Discard unsaved changes and leave this document?");
+  }
+
+  function enterNewDocumentMode() {
+    if (!confirmDiscard()) return;
+    setShowNewDocument(true);
+  }
+
+  function openDocument(event) {
+    if (!confirmDiscard()) event.preventDefault();
+  }
+
+  function toggleFolder(key) {
+    setExpandedFolders((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key); else next.add(key);
+      return next;
+    });
+  }
+
+  function renderFolder(folder, depth = 0) {
+    const expanded = filter.trim() ? true : expandedFolders.has(folder.key);
+    return <div className="manager-folder" key={folder.key}>
+      <button type="button" className="manager-folder-toggle" style={{ paddingLeft: `${8 + depth * 16}px` }} aria-expanded={expanded} onClick={() => toggleFolder(folder.key)}><span aria-hidden="true">{expanded ? "⌄" : ">"}</span>{folder.name}</button>
+      {expanded ? <div>
+        {folder.documents.map((item) => (
+          <a className={!showNewDocument && item.slug === selectedSlug ? "manager-doc active" : "manager-doc"} style={{ paddingLeft: `${28 + depth * 16}px` }} href={`/manager?document=${item.slug}`} onClick={openDocument} key={item.slug}>
+            <span>{item.title}</span>
+            <small>{LABELS[item.defaultVisibility]}{item.hasDraft ? " · Draft" : ""}{item.openFlags ? ` · ${item.openFlags} open flag${item.openFlags === 1 ? "" : "s"}` : ""}</small>
+          </a>
+        ))}
+        {folder.children.map((child) => renderFolder(child, depth + 1))}
+      </div> : null}
+    </div>;
+  }
 
   const summary = useMemo(() => {
     const counts = { public: 0, moderator: 0, developer: 0, administrator: 0 };
@@ -205,26 +255,20 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
   }
 
   return (
-    <main className="manager-shell">
+    <main className="manager-shell" id="page-top">
       <header className="manager-header">
-        <div>
-          <p className="eyebrow">Broken Compass knowledge</p>
-          <strong>Document Manager</strong>
-        </div>
-        <div className="manager-identity"><span>Development author</span><strong>{LABELS[identity]}</strong></div>
+        <div className="manager-header-inner"><nav className="topbar" aria-label="Breadcrumb">
+          <div className="topbar-breadcrumb"><a href="/">Broken Compass knowledge</a><span aria-hidden="true">/</span><span>Document Manager</span></div>
+          <div className="topbar-actions"><a href="/manager/reviews">Review flags</a><AuthControls authorization={authorization} /></div>
+        </nav></div>
       </header>
 
       <aside className="manager-sidebar">
         <label htmlFor="document-filter">Documents</label>
         <input id="document-filter" type="search" placeholder="Filter documents" value={filter} onChange={(event) => setFilter(event.target.value)} />
-        <button type="button" className="new-document-button" onClick={() => setShowNewDocument((value) => !value)}>+ New document</button>
+        <button type="button" className="new-document-button" aria-pressed={showNewDocument} onClick={enterNewDocumentMode}>+ New document</button>
         <nav aria-label="Managed documents">
-          {visibleDocuments.map((item) => (
-            <a className={item.slug === selectedSlug ? "manager-doc active" : "manager-doc"} href={`/manager?document=${item.slug}`} key={item.slug}>
-              <span>{item.title}</span>
-              <small>{LABELS[item.defaultVisibility]}{item.hasDraft ? " · Draft" : ""}{item.openFlags ? ` · ${item.openFlags} open flag${item.openFlags === 1 ? "" : "s"}` : ""}</small>
-            </a>
-          ))}
+          {documentTree.map((folder) => renderFolder(folder))}
         </nav>
         <a className="manager-back" href="/search">← Return to reader</a>
       </aside>
@@ -237,7 +281,7 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
           <label>Browse location<select required value={newDocument.browsePath} onChange={(event) => setNewDocument({ ...newDocument, browsePath: event.target.value })}>{browseLocations.map((location) => <option value={location.path.join("/")} key={location.path.join("/")}>{location.path.map((part) => part.replaceAll("-", " ")).join(" → ")}</option>)}</select></label>
           <label>Default visibility<select value={newDocument.defaultVisibility} onChange={(event) => setNewDocument({ ...newDocument, defaultVisibility: event.target.value })}>{VISIBILITIES.map((value) => <option value={value} key={value}>{LABELS[value]}</option>)}</select></label>
           <div><button className="primary-button" disabled={busy} type="submit">Create draft</button><button className="quiet-button" type="button" onClick={() => setShowNewDocument(false)}>Cancel</button></div>
-        </form> : null}
+        </form> : <>
         <div className="manager-title-row">
           <div>
             <p className="eyebrow">{hasDraft ? "Unpublished changes" : "Draft changes"}</p>
@@ -323,6 +367,8 @@ export function DocumentManager({ identity, documents, selectedSlug, initialDocu
           </header>
           {previewHtml ? <div className="markdown preview-content" dangerouslySetInnerHTML={{ __html: previewHtml }} /> : <div className="preview-empty">Choose an audience to render the current unsaved draft through the canonical authorization system.</div>}
         </section>
+        </>}
+        <ReaderUtilityFooter pageLabel="Document Manager" identity={identity} projection={projection} returnTo="/manager" preserveQuery={{ document: selectedSlug }} />
       </section>
     </main>
   );

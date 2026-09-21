@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DevIdentitySwitcher } from "../../../components/DevIdentitySwitcher.js";
-import { ViewAsControl } from "../../../components/ViewAsControl.js";
 import { FlagForReview } from "../../../components/FlagForReview.js";
 import { AuthControls } from "../../../components/AuthControls.js";
+import { KnowledgeNavigation } from "../../../components/KnowledgeNavigation.js";
+import { ReaderUtilityFooter } from "../../../components/ReaderUtilityFooter.js";
 import { CAPABILITIES, hasCapability } from "../../../lib/capability-policy.js";
+import { buildAuthorizedBrowse } from "../../../lib/browse.js";
 import { getRequestAuthorization } from "../../../lib/request-authorization.js";
 import { loadProjectedDocument } from "../../../lib/knowledge.js";
 import { resolveProjectionIdentity } from "../../../lib/view-as-policy.js";
@@ -25,21 +26,23 @@ export default async function KnowledgeDocumentPage({ params, searchParams }) {
   }
 
   if (!document.html.trim()) notFound();
+  const browse = await buildAuthorizedBrowse(projection);
 
   return (
-    <main className="shell">
+    <main className="shell" id="page-top">
       <nav className="topbar" aria-label="Breadcrumb">
-        <Link href="/">Broken Compass knowledge</Link>
-        <span aria-hidden="true">/</span>
-        <span>{document.title}</span>
-        <Link className="nav-action" href="/search">Search</Link>
-        {hasCapability(identity, CAPABILITIES.MANAGE_DOCUMENTS) ? <Link href={`/manager?document=${slug}`}>Edit draft</Link> : null}
+        <div className="topbar-breadcrumb"><Link href="/">Broken Compass knowledge</Link><span aria-hidden="true">/</span><span>{document.title}</span></div>
+        <div className="topbar-actions">
+          <Link href="/search">Search</Link>
+          {hasCapability(identity, CAPABILITIES.MANAGE_DOCUMENTS) ? <Link href={`/manager?document=${slug}`}>Edit draft</Link> : null}
+          <AuthControls authorization={authorization} />
+        </div>
       </nav>
-      <DevIdentitySwitcher identity={identity} returnTo={document.url} />
-      <AuthControls authorization={authorization} />
+      <div className="reader-layout">
+      <KnowledgeNavigation browse={browse} currentSlug={slug} identity={identity} projection={projection} />
       <article className="document">
         <header>
-          <p className="eyebrow">Canonical guide · {projection} projection</p>
+          <p className="eyebrow">Guide · {projection} view</p>
           <h1>{document.title}</h1>
           <p className="lede">{document.description}</p>
         </header>
@@ -50,7 +53,8 @@ export default async function KnowledgeDocumentPage({ params, searchParams }) {
         <footer className="publication-meta">First published {document.version.firstPublished ? new Date(document.version.firstPublished).toLocaleDateString() : "Unknown"} · Last updated {new Date(document.version.publishedAt).toLocaleDateString()} · {document.version.versionId}</footer>
         <FlagForReview documentId={slug} />
       </article>
-      <ViewAsControl identity={identity} projection={projection} returnTo={document.url} />
+      </div>
+      <ReaderUtilityFooter browse={browse} currentSlug={slug} identity={identity} projection={projection} returnTo={document.url} />
     </main>
   );
 }

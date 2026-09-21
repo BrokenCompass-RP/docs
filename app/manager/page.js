@@ -7,6 +7,8 @@ import { getManagerIdentity } from "../../lib/manager-access.js";
 import { versionRepository } from "../../lib/versions.js";
 import { reviewService } from "../../lib/review-operations.js";
 import { discoverBrowseFolders } from "../../lib/browse.js";
+import { resolveProjectionIdentity } from "../../lib/view-as-policy.js";
+import { getRequestAuthorization } from "../../lib/request-authorization.js";
 
 export const dynamic = "force-dynamic";
 
@@ -18,8 +20,10 @@ export const metadata = {
 export default async function ManagerPage({ searchParams }) {
   const identity = await getManagerIdentity();
   if (!identity) notFound();
+  const authorization = await getRequestAuthorization();
 
   const params = await searchParams;
+  const projection = resolveProjectionIdentity(identity, typeof params.viewAs === "string" ? params.viewAs : identity);
   const requestedSlug = typeof params.document === "string" ? params.document : "building-manager";
   const definitions = await listDocuments();
   const selected = definitions.find((document) => document.slug === requestedSlug);
@@ -35,7 +39,8 @@ export default async function ManagerPage({ searchParams }) {
       defaultVisibility: publishedMetadata?.frontmatter.default_visibility ?? definition.defaultVisibility,
       url: definition.url,
       hasDraft: (await draftRepository.read(definition.slug)) !== null,
-      openFlags: reviews.filter((review) => review.status === "open").length
+      openFlags: reviews.filter((review) => review.status === "open").length,
+      browsePath: definition.browsePath
     };
   }));
 
@@ -48,6 +53,8 @@ export default async function ManagerPage({ searchParams }) {
   return (
     <DocumentManager
       identity={identity}
+      authorization={authorization}
+      projection={projection}
       documents={documentList}
       selectedSlug={selected.slug}
       initialDocument={{ ...toEditableDocument(draftSource ?? canonicalSource), browsePath: (await draftRepository.readBrowsePath?.(selected.slug)) ?? selected.browsePath }}
