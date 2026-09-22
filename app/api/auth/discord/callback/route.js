@@ -26,7 +26,7 @@ export async function GET(request) {
     const session = await getAuthRepository().establishDiscordSession({
       discordUserId: discord.user.id, username: discord.user.username,
       displayName: discord.member?.nick ?? discord.user.global_name ?? discord.user.username,
-      avatarHash: discord.user.avatar, guildId: config.guildId, guildMember: discord.guildMember,
+      guildId: config.guildId, guildMember: discord.guildMember,
       roleIds: discord.roleIds, identity, lifetimeSeconds: SESSION_LIFETIME_SECONDS
     });
     try {

@@ -41,6 +41,24 @@ test("restricted-only terms affect only authorized result sets and counts", () =
   }
 });
 
+test("a public-default document with no public sections is absent from public search", () => {
+  const hidden = fixture("hidden", `---
+title: Hidden operations
+description: Confidential location
+default_visibility: public
+---
+:::access visibility="developer"
+## Internal procedure
+The restrictedbodytoken is here.
+:::`);
+  for (const query of ["Hidden operations", "Confidential location", "restrictedbodytoken"]) {
+    assert.deepEqual(searchParsedDocuments([hidden], query, "public"), []);
+  }
+  for (const query of ["Hidden operations", "restrictedbodytoken"]) {
+    assert.equal(searchParsedDocuments([hidden], query, "developer").length, 1);
+  }
+});
+
 test("administrator-only terms are invisible below Administrator", () => {
   for (const identity of ["public", "moderator", "developer"]) {
     assert.equal(searchParsedDocuments([authorizationFixture], "adminonlytoken", identity).length, 0);
